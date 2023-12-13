@@ -1,0 +1,30 @@
+<ul>
+  <% if (locals.user){ %>
+  <li id="sign-out-button">
+    <a href="/users/sign-out">Sign Out</a>
+  </li>
+  <% } else { %>
+  <li id="login-button">
+    <a href="/users/sign-up">Sign Up</a>
+  </li>
+  <% } %>
+</ul>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var currentUrl = window.location.href;
+
+    if (currentUrl === "http://localhost:8000/users/sign-up") {
+      var loginButton = document.getElementById("login-button");
+      if (loginButton) {
+        loginButton.innerHTML = '<a href="/users/sign-in">Sign In</a>';
+      }
+    }
+
+    if (currentUrl === "http://localhost:8000/users/forgotPasswordRender") {
+      var backButton = document.getElementById("sign-out-button");
+      if (backButton) {
+        backButton.innerHTML = '<a href="/users/sign-in">Back</a>';
+      }
+    }
+  });
+</script>

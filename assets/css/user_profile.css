@@ -1,0 +1,124 @@
+.success-box {
+  height: calc(100vh - 170px);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-box .box {
+  height: 280px;
+  width: 500px;
+  display: flex;
+  gap: 0.7rem;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  border: 2px solid #161616;
+  border-radius: 15px;
+  background-color: #191919;
+  margin-top: -100px;
+  transition: all 0.4s ease;
+  border: 2px solid #757575;
+}
+
+.success-box .box .success-sign {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6fc96f;
+  border-radius: 50%;
+  position: absolute;
+  top: -36px;
+}
+
+.success-box .box .success-sign i {
+  color: white;
+  font-size: 30px;
+}
+
+.success-box .box .success-auth {
+  color: #6fc96f;
+  margin-top: 40px;
+  transition: all 0.4s ease;
+}
+
+.success-box .box .user-name {
+  margin-top: 5px;
+  color: #fdfdd1;
+  list-style: none;
+  font-size: 19px;
+  font-family: sans-serif;
+  transition: all 0.4s ease;
+}
+
+.success-box .box .user-email {
+  color: #fdfdd1;
+  list-style: none;
+  font-size: 22px;
+  font-family: sans-serif;
+  transition: all 0.4s ease;
+}
+
+.success-box .box .reset-password {
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  height: 38px;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background-color: #116ddf;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-top: 15px;
+  transition: all 0.5s ease;
+  border: 1px solid black;
+}
+
+.success-box .box .reset-password:hover {
+  background-color: #0158c2;
+  border: 1px solid white;
+}
+
+.custom-class {
+  background-color: #116ddf;
+}
+
+@media screen and (max-width: 660px) {
+  .success-box .box {
+    height: 230px;
+    width: 320px;
+    margin-top: 0px;
+  }
+  .success-box .box .success-sign {
+    height: 55px;
+    width: 55px;
+    top: -30px;
+  }
+  .success-box .box .success-sign i {
+    font-size: 25px;
+  }
+  .success-box .box .success-auth {
+    font-size: 20px;
+  }
+  .success-box .box .user-name {
+    margin-top: 0px;
+    font-size: 16px;
+  }
+  .success-box .box .user-email {
+    font-size: 18px;
+  }
+  .success-box .box .reset-password {
+    height: 32px;
+    width: 160px;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-top: 18px;
+  }
+}

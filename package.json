@@ -10,7 +10,25 @@
   "author": "Utkarsh",
   "license": "ISC",
   "dependencies": {
+    "connect": "^3.7.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
+    "cookie": "^0.6.0",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "nodemon": "^3.0.2"
+    "express-ejs-layouts": "^2.5.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongo": "^0.1.0",
+    "mongoose": "^8.0.3",
+    "node-sass-middleware": "^1.1.0",
+    "nodemailer": "^6.9.7",
+    "nodemon": "^3.0.2",
+    "parser": "^0.1.4",
+    "passport": "^0.7.0",
+    "passport-github2": "^0.1.12",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-local": "^1.0.0",
+    "session": "^0.1.0"
   }
 }

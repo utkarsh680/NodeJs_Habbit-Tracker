@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/user_profile.css" />
+<div class="success-box animate__animated animate__zoomIn">
+  <div class="box">
+    <div class="success-sign">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <h1 class="success-auth">Successfully Signed in!</h1>
+    <li class="user-name"><%= user.name %></li>
+    <li class="user-email"><%= user.email %></li>
+    <div class="reset-password" id="showYesNo">reset password?</div>
+  </div>
+</div>
+<form action="/users/resetPassword" id="reset-pass-form" method="post">
+  <input type="hidden" name="email" value="<%= user.email %>">
+  <input type="hidden" name="userId" value="<%= user._id %>" />
+</form>
+
+<script src="/js/yes-no-izitoast.js"></script>
