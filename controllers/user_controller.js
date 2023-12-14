@@ -28,12 +28,6 @@ const decodeResetToken = (token) => {
   }
 };
 
-module.exports.profile = async function (req, res) {
-  return res.render("user_profile", {
-    title: "User Profile",
-    user: req.user,
-  });
-};
 
 //render signUp page
 module.exports.signUp = function (req, res) {

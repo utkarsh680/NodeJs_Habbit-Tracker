@@ -1,18 +1,134 @@
 <link rel="stylesheet" href="/css/user_profile.css" />
-<div class="success-box animate__animated animate__zoomIn">
-  <div class="box">
-    <div class="success-sign">
-      <i class="fa-solid fa-check"></i>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="habit-list-box">
+      <div class="add-button">
+        
+        <div class="icon">
+          <h3>Add Habit</h3>
+         <a href="/users/setHabitDetails"><i class="fa-solid fa-plus"></i></a> 
+        </div>
+      </div>
+      <div class="add-habit">
+        <div class="habit-header">
+          <h3>habit-name</h3>
+          <h4>habit-time</h4>
+        </div>
+        <div class="habit-date-list">
+          <ul>
+            <div class="week">
+              <h5>mon</h5>
+              <li>1</li>
+            </div>
+            <div class="week">
+              <h5>tue</h5>
+              <li style="background-color: rgb(123, 123, 248)">2</li>
+            </div>
+            <div class="week">
+              <h5>wed</h5>
+              <li>3</li>
+            </div>
+            <div class="week">
+              <h5>thi</h5>
+              <li>4</li>
+            </div>
+            <div class="week">
+              <h5>fri</h5>
+              <li>5</li>
+            </div>
+            <div class="week">
+              <h5>sat</h5>
+              <li>6</li>
+            </div>
+            <div class="week">
+              <h5>sun</h5>
+              <li>7</li>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="add-habit">
+        <div class="habit-header">
+          <h3>habit-name</h3>
+          <h4>habit-time</h4>
+        </div>
+        <div class="habit-date-list">
+          <ul>
+            <div class="week">
+              <h5>mon</h5>
+              <li>1</li>
+            </div>
+            <div class="week">
+              <h5>tue</h5>
+              <li>2</li>
+            </div>
+            <div class="week">
+              <h5>wed</h5>
+              <li>3</li>
+            </div>
+            <div class="week">
+              <h5>thi</h5>
+              <li>4</li>
+            </div>
+            <div class="week">
+              <h5>fri</h5>
+              <li>5</li>
+            </div>
+            <div class="week">
+              <h5>sat</h5>
+              <li>6</li>
+            </div>
+            <div class="week">
+              <h5>sun</h5>
+              <li>7</li>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="add-habit">
+        <div class="habit-header">
+          <h3>habit-name</h3>
+          <h4>habit-time</h4>
+        </div>
+        <div class="habit-date-list">
+          <ul>
+            <div class="week">
+              <h5>mon</h5>
+              <li>1</li>
+            </div>
+            <div class="week">
+              <h5>tue</h5>
+              <li>2</li>
+            </div>
+            <div class="week">
+              <h5>wed</h5>
+              <li>3</li>
+            </div>
+            <div class="week">
+              <h5>thi</h5>
+              <li>4</li>
+            </div>
+            <div class="week">
+              <h5>fri</h5>
+              <li>5</li>
+            </div>
+            <div class="week">
+              <h5>sat</h5>
+              <li>6</li>
+            </div>
+            <div class="week">
+              <h5>sun</h5>
+              <li>7</li>
+            </div>
+          </ul>
+        </div>
+      </div>
     </div>
-    <h1 class="success-auth">Successfully Signed in!</h1>
-    <li class="user-name"><%= user.name %></li>
-    <li class="user-email"><%= user.email %></li>
-    <div class="reset-password" id="showYesNo">reset password?</div>
-  </div>
-</div>
-<form action="/users/resetPassword" id="reset-pass-form" method="post">
-  <input type="hidden" name="email" value="<%= user.email %>">
-  <input type="hidden" name="userId" value="<%= user._id %>" />
-</form>
-
-<script src="/js/yes-no-izitoast.js"></script>
+  </body>
+</html>

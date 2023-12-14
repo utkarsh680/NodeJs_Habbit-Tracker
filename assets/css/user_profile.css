@@ -1,124 +1,114 @@
-.success-box {
-  height: calc(100vh - 170px);
+.habit-list-box {
+  height: 80vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.success-box .box {
-  height: 280px;
-  width: 500px;
-  display: flex;
-  gap: 0.7rem;
   flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.habit-list-box .add-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 20px;
   position: relative;
-  align-items: center;
-  border: 2px solid #161616;
-  border-radius: 15px;
-  background-color: #191919;
-  margin-top: -100px;
-  transition: all 0.4s ease;
-  border: 2px solid #757575;
+  height: 80px;
+  width: 100px;
 }
 
-.success-box .box .success-sign {
-  height: 70px;
-  width: 70px;
+.habit-list-box .add-button .icon {
+  color: white;
+  font-size: 25px;
+  height: 35px;
+  width: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #6fc96f;
-  border-radius: 50%;
-  position: absolute;
-  top: -36px;
-}
-
-.success-box .box .success-sign i {
-  color: white;
-  font-size: 30px;
-}
-
-.success-box .box .success-auth {
-  color: #6fc96f;
-  margin-top: 40px;
-  transition: all 0.4s ease;
-}
-
-.success-box .box .user-name {
-  margin-top: 5px;
-  color: #fdfdd1;
-  list-style: none;
-  font-size: 19px;
-  font-family: sans-serif;
-  transition: all 0.4s ease;
-}
-
-.success-box .box .user-email {
-  color: #fdfdd1;
-  list-style: none;
-  font-size: 22px;
-  font-family: sans-serif;
-  transition: all 0.4s ease;
-}
-
-.success-box .box .reset-password {
-  font-family: sans-serif;
+  background-color: #4187f0;
   cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid bisque;
+}
+
+.habit-list-box .add-button .icon h3 {
+  position: absolute;
+  color: white;
+  height: auto;
+  font-size: 15px;
+  font-weight: 400;
+  width: auto;
+  padding: 5px 8px;
+  background-color: #5c5c5c;
+  border-radius: 10px;
+  top: -9px;
+  display: none;
   transition: all 0.4s ease;
-  height: 38px;
-  width: 180px;
+}
+
+.habit-list-box .add-button .icon:hover h3 {
+  display: block;
+}
+
+.habit-list-box .add-habit {
+  height: 140px;
+  width: 600px;
+  background-color: #292929;
+  border-radius: 10px;
+  position: relative;
+}
+
+.habit-list-box .add-habit .habit-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.habit-list-box .add-habit .habit-header h3 {
+  color: white;
+  font-weight: 400;
+}
+
+.habit-list-box .add-habit .habit-header h4 {
+  color: #b1aeae;
+  font-weight: 600;
+}
+
+.habit-list-box .add-habit .habit-date-list {
+  margin-top: -30px;
+}
+
+.habit-list-box .add-habit .habit-date-list ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.habit-list-box .add-habit .habit-date-list ul .week {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.habit-list-box .add-habit .habit-date-list ul .week h5 {
+  font-size: 15px;
+  color: #b1aeae;
+}
+
+.habit-list-box .add-habit .habit-date-list ul li {
+  margin-top: -15px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #f16567;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
-  color: white;
-  background-color: #116ddf;
-  font-size: 18px;
-  border-radius: 10px;
-  margin-top: 15px;
-  transition: all 0.5s ease;
-  border: 1px solid black;
-}
-
-.success-box .box .reset-password:hover {
-  background-color: #0158c2;
-  border: 1px solid white;
-}
-
-.custom-class {
-  background-color: #116ddf;
-}
-
-@media screen and (max-width: 660px) {
-  .success-box .box {
-    height: 230px;
-    width: 320px;
-    margin-top: 0px;
-  }
-  .success-box .box .success-sign {
-    height: 55px;
-    width: 55px;
-    top: -30px;
-  }
-  .success-box .box .success-sign i {
-    font-size: 25px;
-  }
-  .success-box .box .success-auth {
-    font-size: 20px;
-  }
-  .success-box .box .user-name {
-    margin-top: 0px;
-    font-size: 16px;
-  }
-  .success-box .box .user-email {
-    font-size: 18px;
-  }
-  .success-box .box .reset-password {
-    height: 32px;
-    width: 160px;
-    font-size: 16px;
-    border-radius: 10px;
-    margin-top: 18px;
-  }
+  flex-direction: column;
 }
