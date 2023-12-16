@@ -4,131 +4,209 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>profile</title>
+    <style>
+      /* Add your styles here */
+      .habit-list.blur {
+        filter: blur(5px);
+      }
+    </style>
   </head>
   <body>
+    <form
+      action="/habit/create"
+      ,
+      id="new-habit-form"
+      method="POST"
+      style="display: none"
+    >
+      <textarea
+        name="title"
+        cols="30"
+        rows="3"
+        placeholder="type here ...."
+      ></textarea>
+      <input type="text" name="desc" placeholder="user desc" />
+      <input type="submit" value="Post" />
+    </form>
+
     <div class="habit-list-box">
-      <div class="add-button">
-        
+      <div class="add-button" onclick="toggleFormAndBlur()">
         <div class="icon">
           <h3>Add Habit</h3>
-         <a href="/users/setHabitDetails"><i class="fa-solid fa-plus"></i></a> 
+          <div id="toggle-button">
+            <i class="fa-solid fa-plus"></i>
+          </div>
         </div>
       </div>
-      <div class="add-habit">
-        <div class="habit-header">
-          <h3>habit-name</h3>
-          <h4>habit-time</h4>
+      <div class="habit-list">
+        <div class="habit-view">
+          <div class="habit-header">
+            <h3>habit-name</h3>
+            <h4>habit-time</h4>
+          </div>
+          <div class="habit-date-list">
+            <ul>
+              <div class="week">
+                <h5>mon</h5>
+                <li>1</li>
+              </div>
+              <div class="week">
+                <h5>tue</h5>
+                <li style="background-color: rgb(123, 123, 248)">2</li>
+              </div>
+              <div class="week">
+                <h5>wed</h5>
+                <li>3</li>
+              </div>
+              <div class="week">
+                <h5>thi</h5>
+                <li>4</li>
+              </div>
+              <div class="week">
+                <h5>fri</h5>
+                <li>5</li>
+              </div>
+              <div class="week">
+                <h5>sat</h5>
+                <li>6</li>
+              </div>
+              <div class="week">
+                <h5>sun</h5>
+                <li>7</li>
+              </div>
+            </ul>
+          </div>
         </div>
-        <div class="habit-date-list">
-          <ul>
-            <div class="week">
-              <h5>mon</h5>
-              <li>1</li>
-            </div>
-            <div class="week">
-              <h5>tue</h5>
-              <li style="background-color: rgb(123, 123, 248)">2</li>
-            </div>
-            <div class="week">
-              <h5>wed</h5>
-              <li>3</li>
-            </div>
-            <div class="week">
-              <h5>thi</h5>
-              <li>4</li>
-            </div>
-            <div class="week">
-              <h5>fri</h5>
-              <li>5</li>
-            </div>
-            <div class="week">
-              <h5>sat</h5>
-              <li>6</li>
-            </div>
-            <div class="week">
-              <h5>sun</h5>
-              <li>7</li>
-            </div>
-          </ul>
+        <div class="habit-view">
+          <div class="habit-header">
+            <h3>habit-name</h3>
+            <h4>habit-time</h4>
+          </div>
+          <div class="habit-date-list">
+            <ul>
+              <div class="week">
+                <h5>mon</h5>
+                <li>1</li>
+              </div>
+              <div class="week">
+                <h5>tue</h5>
+                <li>2</li>
+              </div>
+              <div class="week">
+                <h5>wed</h5>
+                <li>3</li>
+              </div>
+              <div class="week">
+                <h5>thi</h5>
+                <li>4</li>
+              </div>
+              <div class="week">
+                <h5>fri</h5>
+                <li>5</li>
+              </div>
+              <div class="week">
+                <h5>sat</h5>
+                <li>6</li>
+              </div>
+              <div class="week">
+                <h5>sun</h5>
+                <li>7</li>
+              </div>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="add-habit">
-        <div class="habit-header">
-          <h3>habit-name</h3>
-          <h4>habit-time</h4>
+        <div class="habit-view">
+          <div class="habit-header">
+            <h3>habit-name</h3>
+            <h4>habit-time</h4>
+          </div>
+          <div class="habit-date-list">
+            <ul>
+              <div class="week">
+                <h5>mon</h5>
+                <li>1</li>
+              </div>
+              <div class="week">
+                <h5>tue</h5>
+                <li>2</li>
+              </div>
+              <div class="week">
+                <h5>wed</h5>
+                <li>3</li>
+              </div>
+              <div class="week">
+                <h5>thi</h5>
+                <li>4</li>
+              </div>
+              <div class="week">
+                <h5>fri</h5>
+                <li>5</li>
+              </div>
+              <div class="week">
+                <h5>sat</h5>
+                <li>6</li>
+              </div>
+              <div class="week">
+                <h5>sun</h5>
+                <li>7</li>
+              </div>
+            </ul>
+          </div>
         </div>
-        <div class="habit-date-list">
-          <ul>
-            <div class="week">
-              <h5>mon</h5>
-              <li>1</li>
-            </div>
-            <div class="week">
-              <h5>tue</h5>
-              <li>2</li>
-            </div>
-            <div class="week">
-              <h5>wed</h5>
-              <li>3</li>
-            </div>
-            <div class="week">
-              <h5>thi</h5>
-              <li>4</li>
-            </div>
-            <div class="week">
-              <h5>fri</h5>
-              <li>5</li>
-            </div>
-            <div class="week">
-              <h5>sat</h5>
-              <li>6</li>
-            </div>
-            <div class="week">
-              <h5>sun</h5>
-              <li>7</li>
-            </div>
-          </ul>
-        </div>
-      </div>
-      <div class="add-habit">
-        <div class="habit-header">
-          <h3>habit-name</h3>
-          <h4>habit-time</h4>
-        </div>
-        <div class="habit-date-list">
-          <ul>
-            <div class="week">
-              <h5>mon</h5>
-              <li>1</li>
-            </div>
-            <div class="week">
-              <h5>tue</h5>
-              <li>2</li>
-            </div>
-            <div class="week">
-              <h5>wed</h5>
-              <li>3</li>
-            </div>
-            <div class="week">
-              <h5>thi</h5>
-              <li>4</li>
-            </div>
-            <div class="week">
-              <h5>fri</h5>
-              <li>5</li>
-            </div>
-            <div class="week">
-              <h5>sat</h5>
-              <li>6</li>
-            </div>
-            <div class="week">
-              <h5>sun</h5>
-              <li>7</li>
-            </div>
-          </ul>
+        <div class="habit-view">
+          <div class="habit-header">
+            <h3>habit-name</h3>
+            <h4>habit-time</h4>
+          </div>
+          <div class="habit-date-list">
+            <ul>
+              <div class="week">
+                <h5>mon</h5>
+                <li>1</li>
+              </div>
+              <div class="week">
+                <h5>tue</h5>
+                <li>2</li>
+              </div>
+              <div class="week">
+                <h5>wed</h5>
+                <li>3</li>
+              </div>
+              <div class="week">
+                <h5>thi</h5>
+                <li>4</li>
+              </div>
+              <div class="week">
+                <h5>fri</h5>
+                <li>5</li>
+              </div>
+              <div class="week">
+                <h5>sat</h5>
+                <li>6</li>
+              </div>
+              <div class="week">
+                <h5>sun</h5>
+                <li>7</li>
+              </div>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </body>
 </html>
+<script>
+  function toggleFormAndBlur() {
+    var form = document.getElementById("new-habit-form");
+    var habitList = document.querySelector(".habit-list");
+
+    if (form.style.display === "none") {
+      form.style.display = "block";
+      habitList.classList.add("blur");
+    } else {
+      form.style.display = "none";
+      habitList.classList.remove("blur");
+    }
+  }
+</script>

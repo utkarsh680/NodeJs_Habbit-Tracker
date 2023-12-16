@@ -1,3 +1,13 @@
+#new-habit-form {
+  display: flex;
+  position: absolute;
+  top: 300px;
+  z-index: 2;
+  height: 300px;
+  width: 500px;
+  border: 2px solid white;
+}
+
 .habit-list-box {
   height: 80vh;
   width: 100vw;
@@ -51,42 +61,53 @@
   display: block;
 }
 
-.habit-list-box .add-habit {
-  height: 140px;
+.habit-list-box .habit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 56%;
+  width: 40%;
+  padding: 15px;
+  overflow-y: auto;
+  align-items: center;
+}
+
+.habit-list-box .habit-list .habit-view {
+  min-height: 130px;
   width: 600px;
   background-color: #292929;
   border-radius: 10px;
   position: relative;
 }
 
-.habit-list-box .add-habit .habit-header {
+.habit-list-box .habit-list .habit-view .habit-header {
   display: flex;
   justify-content: space-between;
   padding: 0px 20px;
 }
 
-.habit-list-box .add-habit .habit-header h3 {
+.habit-list-box .habit-list .habit-view .habit-header h3 {
   color: white;
   font-weight: 400;
 }
 
-.habit-list-box .add-habit .habit-header h4 {
+.habit-list-box .habit-list .habit-view .habit-header h4 {
   color: #b1aeae;
   font-weight: 600;
 }
 
-.habit-list-box .add-habit .habit-date-list {
+.habit-list-box .habit-list .habit-view .habit-date-list {
   margin-top: -30px;
 }
 
-.habit-list-box .add-habit .habit-date-list ul {
+.habit-list-box .habit-list .habit-view .habit-date-list ul {
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: space-around;
 }
 
-.habit-list-box .add-habit .habit-date-list ul .week {
+.habit-list-box .habit-list .habit-view .habit-date-list ul .week {
   display: flex;
   flex-direction: column;
   height: auto;
@@ -95,12 +116,12 @@
   align-items: center;
 }
 
-.habit-list-box .add-habit .habit-date-list ul .week h5 {
+.habit-list-box .habit-list .habit-view .habit-date-list ul .week h5 {
   font-size: 15px;
   color: #b1aeae;
 }
 
-.habit-list-box .add-habit .habit-date-list ul li {
+.habit-list-box .habit-list .habit-view .habit-date-list ul li {
   margin-top: -15px;
   height: 25px;
   width: 25px;
@@ -111,4 +132,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.habit-list-box .habit-list::-webkit-scrollbar {
+  display: none;
 }

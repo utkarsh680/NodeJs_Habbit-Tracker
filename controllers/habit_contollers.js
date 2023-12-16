@@ -1,13 +1,8 @@
 const Habit = require("../models/habit");
-module.exports.profile = async function (req, res) {
-  return res.render("user_profile", {
-    title: "User Profile",
-    user: req.user,
-  });
-};
+
 
 module.exports.SetHabitDetails = async function (req, res){
-  return res.render('set_habit',{
+  return res.render('user_profile',{
     title : "User Habit",
   })
 }
