@@ -39,160 +39,51 @@
           </div>
         </div>
       </div>
-      <div class="habit-list">
-        <div class="habit-view">
-          <div class="habit-header">
-            <h3>habit-name</h3>
-            <h4>habit-time</h4>
+
+      <ul class="habit-list">
+        <% for(habit of habits){ %>
+        <li>
+          <div class="habit-view">
+            <div class="habit-header">
+              <h3> <%= habit.title %> </h3>
+              <h4><%= habit.desc %> </h4>
+            </div>
+            <div class="habit-date-list">
+              <ul>
+                <div class="week">
+                  <h5>mon</h5>
+                  <li>1</li>
+                </div>
+                <div class="week">
+                  <h5>tue</h5>
+                  <li style="background-color: rgb(123, 123, 248)">2</li>
+                </div>
+                <div class="week">
+                  <h5>wed</h5>
+                  <li>3</li>
+                </div>
+                <div class="week">
+                  <h5>thi</h5>
+                  <li>4</li>
+                </div>
+                <div class="week">
+                  <h5>fri</h5>
+                  <li>5</li>
+                </div>
+                <div class="week">
+                  <h5>sat</h5>
+                  <li>6</li>
+                </div>
+                <div class="week">
+                  <h5>sun</h5>
+                  <li>7</li>
+                </div>
+              </ul>
+            </div>
           </div>
-          <div class="habit-date-list">
-            <ul>
-              <div class="week">
-                <h5>mon</h5>
-                <li>1</li>
-              </div>
-              <div class="week">
-                <h5>tue</h5>
-                <li style="background-color: rgb(123, 123, 248)">2</li>
-              </div>
-              <div class="week">
-                <h5>wed</h5>
-                <li>3</li>
-              </div>
-              <div class="week">
-                <h5>thi</h5>
-                <li>4</li>
-              </div>
-              <div class="week">
-                <h5>fri</h5>
-                <li>5</li>
-              </div>
-              <div class="week">
-                <h5>sat</h5>
-                <li>6</li>
-              </div>
-              <div class="week">
-                <h5>sun</h5>
-                <li>7</li>
-              </div>
-            </ul>
-          </div>
-        </div>
-        <div class="habit-view">
-          <div class="habit-header">
-            <h3>habit-name</h3>
-            <h4>habit-time</h4>
-          </div>
-          <div class="habit-date-list">
-            <ul>
-              <div class="week">
-                <h5>mon</h5>
-                <li>1</li>
-              </div>
-              <div class="week">
-                <h5>tue</h5>
-                <li>2</li>
-              </div>
-              <div class="week">
-                <h5>wed</h5>
-                <li>3</li>
-              </div>
-              <div class="week">
-                <h5>thi</h5>
-                <li>4</li>
-              </div>
-              <div class="week">
-                <h5>fri</h5>
-                <li>5</li>
-              </div>
-              <div class="week">
-                <h5>sat</h5>
-                <li>6</li>
-              </div>
-              <div class="week">
-                <h5>sun</h5>
-                <li>7</li>
-              </div>
-            </ul>
-          </div>
-        </div>
-        <div class="habit-view">
-          <div class="habit-header">
-            <h3>habit-name</h3>
-            <h4>habit-time</h4>
-          </div>
-          <div class="habit-date-list">
-            <ul>
-              <div class="week">
-                <h5>mon</h5>
-                <li>1</li>
-              </div>
-              <div class="week">
-                <h5>tue</h5>
-                <li>2</li>
-              </div>
-              <div class="week">
-                <h5>wed</h5>
-                <li>3</li>
-              </div>
-              <div class="week">
-                <h5>thi</h5>
-                <li>4</li>
-              </div>
-              <div class="week">
-                <h5>fri</h5>
-                <li>5</li>
-              </div>
-              <div class="week">
-                <h5>sat</h5>
-                <li>6</li>
-              </div>
-              <div class="week">
-                <h5>sun</h5>
-                <li>7</li>
-              </div>
-            </ul>
-          </div>
-        </div>
-        <div class="habit-view">
-          <div class="habit-header">
-            <h3>habit-name</h3>
-            <h4>habit-time</h4>
-          </div>
-          <div class="habit-date-list">
-            <ul>
-              <div class="week">
-                <h5>mon</h5>
-                <li>1</li>
-              </div>
-              <div class="week">
-                <h5>tue</h5>
-                <li>2</li>
-              </div>
-              <div class="week">
-                <h5>wed</h5>
-                <li>3</li>
-              </div>
-              <div class="week">
-                <h5>thi</h5>
-                <li>4</li>
-              </div>
-              <div class="week">
-                <h5>fri</h5>
-                <li>5</li>
-              </div>
-              <div class="week">
-                <h5>sat</h5>
-                <li>6</li>
-              </div>
-              <div class="week">
-                <h5>sun</h5>
-                <li>7</li>
-              </div>
-            </ul>
-          </div>
-        </div>
-      </div>
+        </li>
+        <%} %>
+      </ul>
     </div>
   </body>
 </html>

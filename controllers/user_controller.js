@@ -1,5 +1,6 @@
 const { resetPasswordMail } = require("../mailers/resetPassword_mailer");
 const User = require("../models/user");
+const Habit = require("../models/habit");
 const jwt = require("jsonwebtoken");
 
 const crypto = require("crypto");
@@ -28,10 +29,21 @@ const decodeResetToken = (token) => {
   }
 };
 module.exports.profile = async function (req, res) {
-  return res.render("user_profile", {
-    title: "User Profile",
-    user: req.user,
-  });
+  try {
+    const userId = req.user._id;
+    console.log(userId);
+
+    // Fetch habits and populate the 'user' field
+    const habits = await Habit.find({ }).populate('user'); // Update the populate field
+
+    return res.render('user_profile', {
+      title: 'User Profile',
+      habits: habits,
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('Internal Server Error');
+  }
 };
 //render signUp page
 module.exports.signUp = function (req, res) {
@@ -143,7 +155,7 @@ exports.updatePassword = async (req, res) => {
 
   // Decode the token for demonstration purposes
   const decodedToken = decodeResetToken(resetToken);
- console.log(decodedToken)
+  console.log(decodedToken);
   if (!decodedToken) {
     req.flash("error", "invalid link!");
     return res.redirect("back");
@@ -155,7 +167,7 @@ exports.updatePassword = async (req, res) => {
 
   try {
     const updatedUser = await User.findOneAndUpdate(
-      {email: decodedToken.userId},
+      { email: decodedToken.userId },
       { password: req.body.password },
       { new: true }
     );
@@ -172,12 +184,11 @@ exports.updatePassword = async (req, res) => {
       req.flash("success", "Password reset successfully");
     }
 
-    
     return res.redirect("/users/sign-in");
   } catch (error) {
     req.flash("error", "Error updating password. Please try again.");
     return res.redirect("back");
-  } 
+  }
 };
 
 exports.forgetPasswordRender = (req, res) => {
