@@ -14,9 +14,9 @@ const habitSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    dates: [{
-        date: String
-    }]
+    dates: {
+        type: Date
+    }
 },{
     timestamps: true,
 })

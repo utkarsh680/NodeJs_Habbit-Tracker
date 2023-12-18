@@ -34,7 +34,7 @@ module.exports.profile = async function (req, res) {
     console.log(userId);
 
     // Fetch habits and populate the 'user' field
-    const habits = await Habit.find({ }).populate('user'); // Update the populate field
+    const habits = await Habit.find({ user: userId }).populate('user'); // Update the populate field
 
     return res.render('user_profile', {
       title: 'User Profile',

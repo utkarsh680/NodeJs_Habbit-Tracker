@@ -27,7 +27,9 @@
         placeholder="type here ...."
       ></textarea>
       <input type="text" name="desc" placeholder="user desc" />
+      <input type="date" name="dates" />
       <input type="submit" value="Post" />
+      
     </form>
 
     <div class="habit-list-box">
@@ -46,7 +48,8 @@
           <div class="habit-view">
             <div class="habit-header">
               <h3> <%= habit.title %> </h3>
-              <h4><%= habit.desc %> </h4>
+              <h4><%= habit.desc %> <%= habit.dates %> </h4>
+
             </div>
             <div class="habit-date-list">
               <ul>
