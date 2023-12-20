@@ -9,7 +9,7 @@ module.exports.SetHabitDetails = async function (req, res){
 
 module.exports.create = async function (req, res) {
   try {
-    const { title, desc, dates} = req.body;
+    const { title, desc, dateTime} = req.body;
 
     // Check if title is present
     if (!title) {
@@ -21,8 +21,9 @@ module.exports.create = async function (req, res) {
       title: title,
       desc: desc,
       user: req.user._id,
-      dates: dates
+      dateTime: dateTime
     });
+   
 
     if (!habit) {
       console.log('Error in creating a Habit');

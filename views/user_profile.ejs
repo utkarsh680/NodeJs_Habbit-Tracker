@@ -27,9 +27,8 @@
         placeholder="type here ...."
       ></textarea>
       <input type="text" name="desc" placeholder="user desc" />
-      <input type="date" name="dates" />
+      <input type="datetime-local" name="dateTime" />
       <input type="submit" value="Post" />
-      
     </form>
 
     <div class="habit-list-box">
@@ -47,41 +46,18 @@
         <li>
           <div class="habit-view">
             <div class="habit-header">
-              <h3> <%= habit.title %> </h3>
-              <h4><%= habit.desc %> <%= habit.dates %> </h4>
+              <h3><%= habit.title %></h3>
 
-            </div>
-            <div class="habit-date-list">
-              <ul>
-                <div class="week">
-                  <h5>mon</h5>
-                  <li>1</li>
-                </div>
-                <div class="week">
-                  <h5>tue</h5>
-                  <li style="background-color: rgb(123, 123, 248)">2</li>
-                </div>
-                <div class="week">
-                  <h5>wed</h5>
-                  <li>3</li>
-                </div>
-                <div class="week">
-                  <h5>thi</h5>
-                  <li>4</li>
-                </div>
-                <div class="week">
-                  <h5>fri</h5>
-                  <li>5</li>
-                </div>
-                <div class="week">
-                  <h5>sat</h5>
-                  <li>6</li>
-                </div>
-                <div class="week">
-                  <h5>sun</h5>
-                  <li>7</li>
-                </div>
-              </ul>
+              <div class="time-desc">
+                <h4 class="time">
+                  <% const habitDate = new Date(habit.dateTime); %> <% const
+                  hours = habitDate.getHours() % 12 || 12; const minutes =
+                  habitDate.getMinutes(); const period = habitDate.getHours() >=
+                  12 ? 'PM' : 'AM'; %> <%= hours %>:<%= minutes < 10 ? '0' +
+                  minutes : minutes %> <%= period %>
+                </h4>
+                <h4 class="desc"><%= habit.desc %></h4>
+              </div>
             </div>
           </div>
         </li>
