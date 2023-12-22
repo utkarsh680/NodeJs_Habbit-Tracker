@@ -13,70 +13,172 @@
     </style>
   </head>
   <body>
-    <form
-      action="/habit/create"
-      ,
-      id="new-habit-form"
-      method="POST"
-      style="display: none"
-    >
-      <textarea
-        name="title"
-        cols="30"
-        rows="3"
-        placeholder="type here ...."
-      ></textarea>
-      <input type="text" name="desc" placeholder="user desc" />
-      <input type="datetime-local" name="dateTime" />
-      <input type="submit" value="Post" />
-    </form>
-
     <div class="habit-list-box">
+      <div class="border-box">
+        <div class="primary">Primary 16px</div>
+
+        <div class="borders"></div>
+      </div>
       <div class="add-button" onclick="toggleFormAndBlur()">
         <div class="icon">
-          <h3>Add Habit</h3>
+          <h3 class="none flex">Add Habit</h3>
+
           <div id="toggle-button">
             <i class="fa-solid fa-plus"></i>
           </div>
         </div>
       </div>
 
-      <ul class="habit-list">
-        <% for(habit of habits){ %>
-        <li>
-          <div class="habit-view">
-            <div class="habit-header">
-              <h3><%= habit.title %></h3>
+      <div class="box">
+        <div
+          id="form-box"
+          onclick="openForm()"
+          style="display: none"
+          class="animate__animated animate__zoomIn"
+        >
+          <div class="band1"></div>
+          <div class="band2"></div>
+          <div class="band3"></div>
+          <div class="band4"></div>
+          <div class="band5"></div>
+          <div class="button1"></div>
+          <div class="button2"></div>
+          <div class="button3"></div>
+          <div class="button4"></div>
 
-              <div class="time-desc">
-                <h4 class="time">
-                  <% const habitDate = new Date(habit.dateTime); %> <% const
-                  hours = habitDate.getHours() % 12 || 12; const minutes =
-                  habitDate.getMinutes(); const period = habitDate.getHours() >=
-                  12 ? 'PM' : 'AM'; %> <%= hours %>:<%= minutes < 10 ? '0' +
-                  minutes : minutes %> <%= period %>
-                </h4>
-                <h4 class="desc"><%= habit.desc %></h4>
-              </div>
+          <div class="mobile-wallpaper">
+            <div class="mobile-speaker">
+              <div class="mobile-lense"></div>
             </div>
           </div>
-        </li>
-        <%} %>
-      </ul>
+          <div class="black-border"></div>
+         
+        </div>
+        <div
+          id="form-box_"
+          class="animate__animated animate__fadeInLeft"
+          style="display: none"
+        >
+          <div class="band1_"></div>
+          <div class="band2_"></div>
+          <div class="band3_"></div>
+          <div class="band4_"></div>
+          <div class="band5_"></div>
+          <div class="button1_"></div>
+          <div class="button2_"></div>
+          <div class="button3_"></div>
+          <div class="button4_"></div>
+
+          <div class="mobile-wallpaper_">
+            <div class="mobile-speaker_">
+              <div class="mobile-lense_"></div>
+            </div>
+          </div>
+          <div class="black-border_"></div>
+          <!-- <form action="/habit/create" id="new-habit-form" method="POST">
+          <textarea
+            name="title"
+            cols="30"
+            rows="3"
+            placeholder="type here ...."
+          ></textarea>
+          <input type="text" name="desc" placeholder="user desc" />
+          <input type="datetime-local" name="dateTime" />
+          <input type="submit" value="Post" />
+        </form> -->
+        </div>
+
+        <div class="ipad-button" onclick="toggleFormAndBlur()"></div>
+        <div class="camera-style">
+          <div class="front-camera">
+            <div class="front-camera-dot"></div>
+          </div>
+        </div>
+
+        <div class="circle"></div>
+
+        <div class="speaker">
+          <div class="border"></div>
+          <div class="camera">
+            <div class="dot"></div>
+          </div>
+        </div>
+        <ul class="habit-list">
+          <% for(habit of habits){ %>
+          <li>
+            <div class="habit-view">
+              <div class="habit-view-item">
+                <div class="left-side">
+                  <h3><%= habit.title %></h3>
+                  <div class="control-button">
+                    <i class="fa-solid fa-check"></i>
+                    <i class="fa-solid fa-xmark"></i>
+                    <i class="fa-solid fa-minus"></i>
+                  </div>
+                </div>
+
+                <div class="time-desc">
+                  <h4 class="time">
+                    <% const habitDate = new Date(habit.dateTime); %> <% const
+                    hours = habitDate.getHours() % 12 || 12; const minutes =
+                    habitDate.getMinutes(); const period = habitDate.getHours()
+                    >= 12 ? 'PM' : 'AM'; %> <%= hours %>:<%= minutes < 10 ? '0'
+                    + minutes : minutes %> <%= period %>
+                  </h4>
+                  <h4 class="desc"><%= habit.desc %></h4>
+                </div>
+              </div>
+            </div>
+          </li>
+          <%} %>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
 <script>
   function toggleFormAndBlur() {
-    var form = document.getElementById("new-habit-form");
+    var form = document.getElementById("form-box");
     var habitList = document.querySelector(".habit-list");
+    var icon = document.querySelector("#toggle-button i");
+    var hover = document.querySelector(".icon h3");
+    var formDisplay = document.getElementById("form-box_");
 
     if (form.style.display === "none") {
       form.style.display = "block";
+      form.classList.remove("animate__zoomOut");
+      form.classList.add("animate__zoomIn")
       habitList.classList.add("blur");
+      icon.classList.remove("fa-plus");
+      icon.classList.add("fa-minus");
+      hover.classList.add("flex");
+      hover.classList.remove("none");
     } else {
-      form.style.display = "none";
+      setTimeout(() => {
+        form.style.display = "none";
+      }, 500);
+      
+      form.classList.add("animate__zoomOut");
+      form.classList.remove("animate__zoomIn")
       habitList.classList.remove("blur");
+      icon.classList.remove("fa-minus");
+      icon.classList.add("fa-plus");
+      hover.classList.add("none");
+      hover.classList.remove("flex");
+      formDisplay.style.display = "none";
+    }
+  }
+  function openForm() {
+    var formDisplay = document.getElementById("form-box_");
+
+    if (formDisplay.style.display === "none") {
+      formDisplay.style.display = "block";
+      formDisplay.classList.remove("animate__fadeOutRight");
+    } else {
+      formDisplay.classList.add("animate__fadeOutRight");
+      setTimeout(() => {
+        formDisplay.style.display = "none";
+      }, 500);
     }
   }
 </script>
