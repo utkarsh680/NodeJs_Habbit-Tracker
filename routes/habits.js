@@ -8,5 +8,7 @@ const habitControllers = require('../controllers/habit_contollers');
 
 router.post("/create", habitControllers.create);
 
+router.get('/delete/:id', habitControllers.delete)
+
 module.exports = router;
 

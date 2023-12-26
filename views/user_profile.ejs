@@ -47,12 +47,32 @@
           <div class="button4"></div>
 
           <div class="mobile-wallpaper">
+            <div class="currentTime">
+              <div class="days" id="currentDate"></div>
+              <div class="time" id="currentTime"></div>
+            </div>
+            <div class="lock-camera-torch">
+              <div class="lock-torch">
+                <i class="fa-solid fa-filter"></i>
+              </div>
+              <div class="lock-camera">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div>
+            <div class="greyLine"></div>
+            <div class="header-field">
+              <div class="network"><i class="fa-solid fa-signal"></i></div>
+              <div class="wifi"><i class="fa-solid fa-wifi"></i></div>
+              <div class="battery">
+                <i class="fa-solid fa-battery-full"></i>
+              </div>
+            </div>
+            <div class="header-field-border"></div>
             <div class="mobile-speaker">
               <div class="mobile-lense"></div>
             </div>
           </div>
           <div class="black-border"></div>
-         
         </div>
         <div
           id="form-box_"
@@ -70,22 +90,53 @@
           <div class="button4_"></div>
 
           <div class="mobile-wallpaper_">
+            <div class="cancel-save">
+              <div class="cancel">Cancel</div>
+              <div class="addHabit">Add Habit</div>
+              <div class="save" onclick="saveForm()">Save</div>
+            </div>
+            <div class="mobile_wallpaper-style"></div>
+            <div class="currentTime_" id="currentTime1"></div>
+            <div class="header-field_">
+              <div class="network"><i class="fa-solid fa-signal"></i></div>
+              <div class="wifi"><i class="fa-solid fa-wifi"></i></div>
+              <div class="battery">
+                <i class="fa-solid fa-battery-full"></i>
+              </div>
+            </div>
             <div class="mobile-speaker_">
               <div class="mobile-lense_"></div>
             </div>
           </div>
           <div class="black-border_"></div>
-          <!-- <form action="/habit/create" id="new-habit-form" method="POST">
-          <textarea
-            name="title"
-            cols="30"
-            rows="3"
-            placeholder="type here ...."
-          ></textarea>
-          <input type="text" name="desc" placeholder="user desc" />
-          <input type="datetime-local" name="dateTime" />
-          <input type="submit" value="Post" />
-        </form> -->
+          <form action="/habit/create" id="new-habit-form" method="POST">
+            <div class="add-habit">Add Habit</div>
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter Work"
+              class="user-title"
+              required
+            />
+            <input
+              type="text"
+              name="desc"
+              placeholder="Time period"
+              class="user-desc"
+              required
+            />
+            <input
+              type="datetime-local"
+              name="dateTime"
+              class="user-dateTime"
+              required
+            />
+
+            <div class="cancel-save_">
+              <div class="cancel_">Cancel</div>
+              <input type="submit" class="save_" />
+            </div>
+          </form>
         </div>
 
         <div class="ipad-button" onclick="toggleFormAndBlur()"></div>
@@ -103,7 +154,7 @@
             <div class="dot"></div>
           </div>
         </div>
-        <ul class="habit-list">
+        <ul class="habit-list" id="habit-list">
           <% for(habit of habits){ %>
           <li>
             <div class="habit-view">
@@ -112,7 +163,9 @@
                   <h3><%= habit.title %></h3>
                   <div class="control-button">
                     <i class="fa-solid fa-check"></i>
-                    <i class="fa-solid fa-xmark"></i>
+                    <a href="/habit/delete/<%= habit._id %>"
+                      ><i class="fa-solid fa-xmark cut"></i
+                    ></a>
                     <i class="fa-solid fa-minus"></i>
                   </div>
                 </div>
@@ -147,7 +200,7 @@
     if (form.style.display === "none") {
       form.style.display = "block";
       form.classList.remove("animate__zoomOut");
-      form.classList.add("animate__zoomIn")
+      form.classList.add("animate__zoomIn");
       habitList.classList.add("blur");
       icon.classList.remove("fa-plus");
       icon.classList.add("fa-minus");
@@ -157,9 +210,9 @@
       setTimeout(() => {
         form.style.display = "none";
       }, 500);
-      
+
       form.classList.add("animate__zoomOut");
-      form.classList.remove("animate__zoomIn")
+      form.classList.remove("animate__zoomIn");
       habitList.classList.remove("blur");
       icon.classList.remove("fa-minus");
       icon.classList.add("fa-plus");
@@ -182,3 +235,7 @@
     }
   }
 </script>
+
+<script src="/js/current-time.js"></script>
+<script src="/js/current-date.js"></script>
+<script src="/js/user-profile.js"></script>

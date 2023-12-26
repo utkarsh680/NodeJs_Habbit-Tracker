@@ -1,3 +1,11 @@
+input {
+  caret-color: red;
+}
+
+input :-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
 .habit-list-box {
   height: 80vh;
   width: 100vw;
@@ -216,6 +224,85 @@
   border-radius: 22px;
 }
 
+.habit-list-box .box #form-box .mobile-wallpaper .currentTime {
+  position: absolute;
+  left: 37px;
+  top: 35px;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .currentTime .days {
+  font-size: 11px;
+  color: #a19e9a;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .currentTime .time {
+  margin-top: 5px;
+  font-size: 40px;
+  margin-left: 7px;
+  color: #a19e9a;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .lock-camera-torch {
+  position: absolute;
+  bottom: 25px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .lock-camera-torch .lock-torch {
+  height: 23px;
+  width: 23px;
+  border-radius: 50%;
+  background-color: #584f4bbb;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .lock-camera-torch .lock-torch i {
+  color: #d6d5d5;
+  font-size: 11px;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .lock-camera-torch .lock-camera {
+  height: 23px;
+  width: 23px;
+  border-radius: 50%;
+  background-color: #584f4bbb;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .lock-camera-torch .lock-camera i {
+  color: #d6d5d5;
+  font-size: 11px;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .header-field {
+  display: flex;
+  position: absolute;
+  gap: 0.3rem;
+  right: 8px;
+  padding: 4px;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .header-field i {
+  font-size: 8px;
+  color: #f3f3f3;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .header-field-border {
+  position: absolute;
+  top: 23px;
+  right: 17px;
+  width: 27px;
+  border-bottom: 1px solid #e6e4e4;
+}
+
 .habit-list-box .box #form-box .mobile-wallpaper .mobile-speaker {
   margin-top: 6px;
   height: 16px;
@@ -235,6 +322,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.habit-list-box .box #form-box .mobile-wallpaper .greyLine {
+  width: 60px;
+  position: absolute;
+  bottom: 6px;
+  border: 1px solid #c7c6c6;
 }
 
 .habit-list-box .box #form-box .black-border {
@@ -359,13 +453,70 @@
   justify-content: center;
   height: 390px;
   width: 195px;
-  background-image: url("https://www.ytechb.com/wp-content/uploads/2023/09/iPhone-15-Wallpaper-2.webp");
+  background-color: #edecf0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   left: 7px;
   top: 7px;
   border-radius: 22px;
+}
+
+.habit-list-box .box #form-box_ .mobile-wallpaper_ .cancel-save {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  top: 8%;
+}
+
+.habit-list-box .box #form-box_ .mobile-wallpaper_ .cancel-save .cancel {
+  font-size: 12px;
+  color: #116ddf;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.habit-list-box .box #form-box_ .mobile-wallpaper_ .cancel-save .addHabit {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.habit-list-box .box #form-box_ .mobile-wallpaper_ .cancel-save .save {
+  font-size: 12px;
+  color: #116ddf;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.habit-list-box .box #form-box_ .mobile-wallpaper_ .mobile_wallpaper-style {
+  position: absolute;
+  height: 340px;
+  width: 195px;
+  background-color: #c3c2c880;
+  top: 50px;
+  border-radius: 0 0 20px 20px;
+}
+
+.habit-list-box .box #form-box_ .mobile-wallpaper_ .currentTime_ {
+  position: absolute;
+  left: 15px;
+  top: 7.5px;
+  font-size: 11px;
+  font-weight: 550;
+}
+
+.habit-list-box .box #form-box_ .mobile-wallpaper_ .header-field_ {
+  display: flex;
+  position: absolute;
+  gap: 0.3rem;
+  right: 8px;
+  padding: 4px;
+}
+
+.habit-list-box .box #form-box_ .mobile-wallpaper_ .header-field_ i {
+  font-size: 8px;
 }
 
 .habit-list-box .box #form-box_ .mobile-wallpaper_ .mobile-speaker_ {
@@ -400,7 +551,81 @@
 
 .habit-list-box .box #form-box_ #new-habit-form {
   position: absolute;
-  top: 10%;
+  top: 25%;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 46%;
+  left: 20px;
+  background-color: #f2f0f5;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  border-radius: 20px;
+}
+
+.habit-list-box .box #form-box_ #new-habit-form .add-habit {
+  position: absolute;
+  top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.habit-list-box .box #form-box_ #new-habit-form .user-title {
+  height: 25px;
+  width: 120px;
+  color: #292929;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  padding: 0 15px;
+  outline: none;
+}
+
+.habit-list-box .box #form-box_ #new-habit-form .user-desc {
+  height: 25px;
+  width: 120px;
+  color: #292929;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  padding: 0 15px;
+  outline: none;
+}
+
+.habit-list-box .box #form-box_ #new-habit-form .user-dateTime {
+  height: 25px;
+  width: 120px;
+  color: #292929;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  padding: 0 15px;
+  font-weight: 600;
+  outline: none;
+}
+
+.habit-list-box .box #form-box_ #new-habit-form .cancel-save_ {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  bottom: 12px;
+}
+
+.habit-list-box .box #form-box_ #new-habit-form .cancel-save_ .cancel_ {
+  font-size: 12px;
+  color: #116ddf;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.habit-list-box .box #form-box_ #new-habit-form .cancel-save_ .save_ {
+  font-size: 12px;
+  color: #116ddf;
+  margin-right: 16px;
+  cursor: pointer;
+  border: none;
 }
 
 .habit-list-box .box .ipad-button {

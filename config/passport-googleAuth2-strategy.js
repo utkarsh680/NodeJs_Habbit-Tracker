@@ -21,6 +21,7 @@ passport.use(
       } else {
         //if not found, create the user and set at as req.user
         const user = await User.create({
+          avatar : profile.photos[0].value,
           name: profile.displayName,
           email: profile.emails[0].value,
           password: crypto.randomBytes(20).toString("hex"),

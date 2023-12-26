@@ -1,3 +1,10 @@
+input {
+  caret-color: red;
+
+  :-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  }
+}
 .habit-list-box {
   height: 80vh;
   width: 100vw;
@@ -217,6 +224,75 @@
         left: 7px;
         top: 7px;
         border-radius: 22px;
+        .currentTime {
+          position: absolute;
+          left: 37px;
+          top: 35px;
+          .days {
+            font-size: 11px;
+            color: #a19e9a;
+          }
+          .time {
+            margin-top: 5px;
+            font-size: 40px;
+            margin-left: 7px;
+            color: #a19e9a;
+          }
+        }
+        .lock-camera-torch {
+          position: absolute;
+          bottom: 25px;
+          display: flex;
+          width: 100%;
+          justify-content: space-around;
+
+          .lock-torch {
+            height: 23px;
+            width: 23px;
+            border-radius: 50%;
+            background-color: #584f4bbb;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i {
+              color: rgb(214, 213, 213);
+              font-size: 11px;
+            }
+          }
+          .lock-camera {
+            height: 23px;
+            width: 23px;
+            border-radius: 50%;
+            background-color: #584f4bbb;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i {
+              color: rgb(214, 213, 213);
+              font-size: 11px;
+            }
+          }
+        }
+        .header-field {
+          display: flex;
+          position: absolute;
+          gap: 0.3rem;
+          right: 8px;
+          padding: 4px;
+          i {
+            font-size: 8px;
+            color: rgb(243, 243, 243);
+          }
+        }
+        .header-field-border {
+          position: absolute;
+          top: 23px;
+          right: 17px;
+          width: 27px;
+          border-bottom: 1px solid rgb(230, 228, 228);
+        }
         .mobile-speaker {
           margin-top: 6px;
           height: 16px;
@@ -235,6 +311,12 @@
             background-repeat: no-repeat;
             background-size: cover;
           }
+        }
+        .greyLine {
+          width: 60px;
+          position: absolute;
+          bottom: 6px;
+          border: 1px solid rgb(199, 198, 198);
         }
       }
 
@@ -369,13 +451,64 @@
         justify-content: center;
         height: 390px;
         width: 195px;
-        background-image: url("https://www.ytechb.com/wp-content/uploads/2023/09/iPhone-15-Wallpaper-2.webp");
+        background-color: #edecf0;
+        // background-image: url("https://www.ytechb.com/wp-content/uploads/2023/09/iPhone-15-Wallpaper-2.webp");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+
         left: 7px;
         top: 7px;
         border-radius: 22px;
+        .cancel-save {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+          top: 8%;
+          .cancel {
+            font-size: 12px;
+            color: #116ddf;
+            margin-left: 10px;
+            cursor: pointer;
+          }
+          .addHabit {
+            font-size: 12px;
+            font-weight: 600;
+          }
+          .save {
+            font-size: 12px;
+            color: #116ddf;
+            margin-right: 10px;
+            cursor: pointer;
+          }
+        }
+        .mobile_wallpaper-style {
+          position: absolute;
+          height: 340px;
+          width: 195px;
+          background-color: #c3c2c880;
+          top: 50px;
+          border-radius: 0 0 20px 20px;
+        }
+        .currentTime_ {
+          position: absolute;
+          left: 15px;
+          top: 7.5px;
+          font-size: 11px;
+          font-weight: 550;
+        }
+        .header-field_ {
+          display: flex;
+          position: absolute;
+          gap: 0.3rem;
+          right: 8px;
+          padding: 4px;
+          i {
+            font-size: 8px;
+          }
+        }
         .mobile-speaker_ {
           margin-top: 6px;
           height: 16px;
@@ -407,8 +540,74 @@
       }
       #new-habit-form {
         position: absolute;
-        top: 10%;
-        
+        top: 25%;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 46%;
+        left: 20px;
+        background-color: #f2f0f5;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+        border-radius: 20px;
+        .add-habit{
+          position: absolute;
+          top: 10px;
+          font-size: 12px;
+          font-weight: 600;
+        }
+        .user-title {
+          height: 25px;
+          width: 120px;
+          color: rgb(41, 41, 41);
+          background-color: #ffffff;
+          border-radius: 5px;
+          border: none;
+          padding: 0 15px;
+          outline: none;
+        }
+        .user-desc {
+          height: 25px;
+          width: 120px;
+          color: rgb(41, 41, 41);
+          background-color: #ffffff;
+          border-radius: 5px;
+          border: none;
+          padding: 0 15px;
+          outline: none;
+        }
+        .user-dateTime {
+          height: 25px;
+          width: 120px;
+          color: rgb(41, 41, 41);
+          background-color: #ffffff;
+          border-radius: 5px;
+          border: none;
+          padding: 0 15px;
+          font-weight: 600;
+          outline: none;
+        }
+        .cancel-save_{
+          position: absolute;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          bottom: 12px;
+          .cancel_ {
+            font-size: 12px;
+            color: #116ddf;
+            margin-left: 20px;
+            cursor: pointer;
+          }
+          .save_ {
+            font-size: 12px;
+            color: #116ddf;
+            margin-right: 16px;
+            cursor: pointer;
+            border: none;
+          }
+        }
       }
     }
 

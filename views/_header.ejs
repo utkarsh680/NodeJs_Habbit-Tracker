@@ -1,15 +1,33 @@
 <ul>
-  <% if (locals.user){ %>
-  <li id="sign-out-button">
-    <a href="/users/sign-out">Sign Out</a>
-  </li>
-  <% } else { %>
-  <li id="login-button">
-    <a href="/users/sign-up">Sign Up</a>
-  </li>
-  <% } %>
+  <div class="main-header">
+    <% if (!locals.user) { %>
+    <li id="login-button">
+      <a href="/users/sign-up">Sign Up</a>
+    </li>
+    <% } else { %>
+    <div class="avatar">
+      <img src="<%= locals.user.avatar %>" alt="" />
+      <i class="fa-solid fa-angle-down"></i>
+    </div>
+    <div class="header animate__animated animate__fadeIn">
+      <div class="profile">
+        <div class="avatar_">
+          <img src="<%= locals.user.avatar %>" alt="" />
+        </div>
+        <div class="user-name-email">
+          <div class="user-name"><%= locals.user.name %></div>
+          <div class="user-email"><%= locals.user.email %></div>
+        </div>
+      </div>
+      <li id="sign-out-button">
+        <a href="/users/sign-out">Sign Out</a>
+      </li>
+    </div>
+    <% } %>
+  </div>
 </ul>
-<script>
+
+<!-- <script>
   document.addEventListener("DOMContentLoaded", function () {
     var currentUrl = window.location.href;
 
@@ -21,10 +39,11 @@
     }
 
     if (currentUrl === "http://localhost:8000/users/forgotPasswordRender") {
-      var backButton = document.getElementById("sign-out-button");
+      var backButton = document.getElementById("login-button");
       if (backButton) {
         backButton.innerHTML = '<a href="/users/sign-in">Back</a>';
       }
     }
   });
-</script>
+</script> -->
+<script></script>
