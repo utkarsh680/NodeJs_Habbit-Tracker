@@ -48,15 +48,55 @@ module.exports.delete = async function(req, res) {
 
     // Check if the habit exists
     if (!habit) {
-      return res.redirect('back')
+      return res.status(400).json({
+        message: "Error in deleting habit!",
+      });
     }
 
-    // Respond with a success message or appropriate response
-    req.flash("success", "habit deleted successfully!");
-    return res.redirect('back');
+    return res.status(200).json({
+      message: "Habit deleted successfully!",
+      habit
+    });
     
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+module.exports.complete = async function (req, res) {
+  const habits_id = req.params.id;
+  try {
+    const habit = await Habit.findByIdAndUpdate(habits_id, { complete: true });
+
+    if (!habit) {
+      return res.redirect("back");
+    }
+    return res.status(200).json({
+      message: "Habit done successfully!",
+      habit
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+module.exports.notComplete = async function (req, res) {
+  const habits_id = req.params.id;
+  try {
+    const habit = await Habit.findByIdAndUpdate(habits_id, { complete: false});
+
+    if (!habit) {
+      return res.redirect("back");
+    }
+    return res.status(200).json({
+      message: "Habit not done!",
+      habit
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+module.exports;

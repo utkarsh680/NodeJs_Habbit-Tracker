@@ -156,17 +156,24 @@
         </div>
         <ul class="habit-list" id="habit-list">
           <% for(habit of habits){ %>
-          <li>
+          <li id='habit-<%= habit._id %>'>
             <div class="habit-view">
               <div class="habit-view-item">
                 <div class="left-side">
                   <h3><%= habit.title %></h3>
                   <div class="control-button">
-                    <i class="fa-solid fa-check"></i>
-                    <a href="/habit/delete/<%= habit._id %>"
-                      ><i class="fa-solid fa-xmark cut"></i
-                    ></a>
-                    <i class="fa-solid fa-minus"></i>
+                    <i
+                      class="fa-solid fa-check"
+                      habit-id="<%= habit._id %>"
+                      onclick="completeTask('<%= habit._id %>')"
+                    ></i>
+
+                    <i
+                      class="fa-solid fa-xmark cut"
+                      onclick="deleteTask('<%= habit._id %>')"
+                    ></i>
+                    <i class="fa-solid fa-minus"
+                    onclick="notCompleteTask('<%= habit._id %>')"></i>
                   </div>
                 </div>
 
