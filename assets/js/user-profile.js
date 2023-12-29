@@ -163,6 +163,8 @@ async function completeTask(taskId) {
     if (response.ok) {
       const responseData = await response.json();
       console.log("Task completed successfully:", responseData);
+      
+      
       new Noty({
         theme: "relax",
         text: "habit done successfully!",
@@ -187,7 +189,7 @@ async function completeTask(taskId) {
 
 async function notCompleteTask(taskId) {
   try {
-    console.log("tastID@@@@@@@@@", taskId);
+    
     const response = await fetch(`/habit/notCompleted/${taskId}`, {
       method: "post",
       headers: {

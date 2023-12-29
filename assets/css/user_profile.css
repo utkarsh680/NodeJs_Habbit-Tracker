@@ -624,6 +624,7 @@ input :-webkit-autofill {
   font-size: 12px;
   color: #116ddf;
   margin-right: 16px;
+  background: transparent;
   cursor: pointer;
   border: none;
 }
@@ -781,15 +782,35 @@ input :-webkit-autofill {
   margin-left: -10px;
 }
 
-.habit-list-box .box .habit-list .habit-view .habit-view-item .left-side .control-button i {
-  height: 23px;
-  width: 23px;
-  padding: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.habit-list-box .box .habit-list .habit-view .habit-view-item .left-side .control-button .skill {
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
+.habit-list-box .box .habit-list .habit-view .habit-view-item .left-side .control-button .skill .outer {
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
-  background-color: black;
+  box-shadow: 6px 6px 10px -1px rgba(41, 41, 241, 0.2), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.habit-list-box .box .habit-list .habit-view .habit-view-item .left-side .control-button .skill .outer .inner {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: inset 4px 4px 6px 1px rgba(0, 0, 0, 0.2), inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7), -0.5px -0.5px 0px white, 0.5px 0.5px 0px rgba(41, 41, 241, 0.2), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.habit-list-box .box .habit-list .habit-view .habit-view-item .left-side .control-button .skill .outer .inner i {
+  font-size: 18px;
 }
 
 .habit-list-box .box .habit-list .habit-view .habit-view-item .time-desc {

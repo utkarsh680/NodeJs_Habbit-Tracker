@@ -551,7 +551,7 @@ input {
         justify-content: center;
         gap: 0.7rem;
         border-radius: 20px;
-        .add-habit{
+        .add-habit {
           position: absolute;
           top: 10px;
           font-size: 12px;
@@ -588,7 +588,7 @@ input {
           font-weight: 600;
           outline: none;
         }
-        .cancel-save_{
+        .cancel-save_ {
           position: absolute;
           display: flex;
           justify-content: space-between;
@@ -604,6 +604,7 @@ input {
             font-size: 12px;
             color: #116ddf;
             margin-right: 16px;
+            background: transparent;
             cursor: pointer;
             border: none;
           }
@@ -748,15 +749,37 @@ input {
               gap: 1rem;
               color: rgb(230, 230, 230);
               margin-left: -10px;
-              i {
-                height: 23px;
-                width: 23px;
-                padding: 2px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-                background-color: rgb(0, 0, 0);
+              .skill {
+                height: 50px;
+                width: 50px;
+                position: relative;
+                .outer {
+                  height: 50px;
+                  width: 50px;
+                  border-radius: 50%;
+                  box-shadow: 6px 6px 10px -1px rgba(41, 41, 241, 0.2),
+                    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  .inner {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    box-shadow: inset 4px 4px 6px 1px rgba(0, 0, 0, 0.2),
+                      inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+                      -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                      0.5px 0.5px 0px rgba(41, 41, 241, 0.2),
+                      0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    i {
+                      font-size: 18px;
+                    }
+                  }
+                }
               }
             }
           }
