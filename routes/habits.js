@@ -8,6 +8,8 @@ const habitControllers = require('../controllers/habit_contollers');
 
 router.post("/create", habitControllers.create);
 
+router.post('/update/:id', habitControllers.update);
+
 router.get('/delete/:id', habitControllers.delete);
 
 router.post('/complete/:id', habitControllers.complete);

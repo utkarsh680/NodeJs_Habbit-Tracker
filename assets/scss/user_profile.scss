@@ -758,7 +758,8 @@ input {
                   width: 50px;
                   border-radius: 50%;
                   box-shadow: 6px 6px 10px -1px rgba(41, 41, 241, 0.2),
-                    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+                    -6px -6px 10px -1px rgba(0, 0, 0, 0.3);
+          
                   display: flex;
                   align-items: center;
                   justify-content: center;
@@ -767,8 +768,8 @@ input {
                     width: 40px;
                     border-radius: 50%;
                     box-shadow: inset 4px 4px 6px 1px rgba(0, 0, 0, 0.2),
-                      inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
-                      -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                      inset -4px -4px 6px -1px rgba(28, 28, 28, 0.7),
+                      -0.5px -0.5px 0px rgb(31, 31, 31),
                       0.5px 0.5px 0px rgba(41, 41, 241, 0.2),
                       0px 12px 10px -10px rgba(0, 0, 0, 0.05);
                     display: flex;

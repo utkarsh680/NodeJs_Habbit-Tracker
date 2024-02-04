@@ -31,7 +31,7 @@ module.exports.create = async function (req, res) {
     }
     return res.status(200).json({
       message: "Habit created successfully!",
-      habit
+      habit,
     });
   } catch (err) {
     return res.status(400).json({
@@ -40,7 +40,28 @@ module.exports.create = async function (req, res) {
   }
 };
 
-module.exports.delete = async function(req, res) {
+module.exports.update = async function (req, res) {
+  try {
+    const updatedUser = await Habit.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    console.log("hello",updatedUser.id);
+
+    if (!updatedUser) {
+      // User with the given ID not found
+      return res.status(404).send("User not found");
+    }
+    return res.status(200).json({
+      message: "Habit updated successfully!",
+      habitId : updatedUser.id
+    });
+  } catch (err) {
+    return res.status(400).json({
+      message: "Error in updating habit!",
+    });
+  }
+};
+module.exports.delete = async function (req, res) {
   const habits_id = req.params.id; // Assuming the habit ID is passed as a parameter in the request
   try {
     // Find the habit by ID
@@ -55,12 +76,11 @@ module.exports.delete = async function(req, res) {
 
     return res.status(200).json({
       message: "Habit deleted successfully!",
-      habit
+      habit,
     });
-    
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -74,7 +94,7 @@ module.exports.complete = async function (req, res) {
     }
     return res.status(200).json({
       message: "Habit done successfully!",
-      habit
+      habit,
     });
   } catch (error) {
     console.error(error);
@@ -85,14 +105,14 @@ module.exports.complete = async function (req, res) {
 module.exports.notComplete = async function (req, res) {
   const habits_id = req.params.id;
   try {
-    const habit = await Habit.findByIdAndUpdate(habits_id, { complete: false});
+    const habit = await Habit.findByIdAndUpdate(habits_id, { complete: false });
 
     if (!habit) {
       return res.redirect("back");
     }
     return res.status(200).json({
       message: "Habit not done!",
-      habit
+      habit,
     });
   } catch (error) {
     console.error(error);

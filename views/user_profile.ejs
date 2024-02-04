@@ -10,6 +10,15 @@
       .habit-list.blur {
         filter: blur(5px);
       }
+      .green-color {
+        color: green;
+      }
+      .red-color {
+        color: red;
+      }
+      .white-color {
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -111,6 +120,8 @@
           <div class="black-border_"></div>
           <form action="/habit/create" id="new-habit-form" method="POST">
             <div class="add-habit">Add Habit</div>
+            <!-- Existing input fields (title, desc, dateTime) -->
+            <input type="hidden" id="habit-id" name="habitId" value="" />
             <input
               type="text"
               name="title"
@@ -166,8 +177,8 @@
                       <div class="outer">
                         <div class="inner">
                           <i
-                            class="fa-solid fa-check"
-                            id="checked"
+                            class="fa-solid fa-check <%= habit.complete === true ? 'green-color' : 'white-color' %>"
+                            id="checked_<%= habit._id %>"
                             habit-id="<%= habit._id %>"
                             onclick="completeTask('<%= habit._id %>')"
                           ></i>
@@ -180,7 +191,6 @@
                           <i
                             id="cross"
                             class="fa-solid fa-xmark cut"
-                            
                             onclick="deleteTask('<%= habit._id %>')"
                           ></i>
                         </div>
@@ -190,12 +200,15 @@
                       <div class="outer">
                         <div class="inner">
                           <i
-                            id="unChecked"
-                            class="fa-solid fa-minus"
+                            id="unChecked_<%= habit._id %>"
+                            class="fa-solid fa-minus <%= habit.complete === false ? 'red-color' : 'white-color' %>"
                             onclick="notCompleteTask('<%= habit._id %>')"
                           ></i>
                         </div>
                       </div>
+                    </div>
+                    <div onclick="updateHabit('<%= habit._id %>')">
+                      <i class="fa-solid fa-pen-to-square"></i>
                     </div>
                   </div>
                 </div>
@@ -264,6 +277,8 @@
       }, 500);
     }
   }
+
+ 
 </script>
 
 <script src="/js/current-time.js"></script>

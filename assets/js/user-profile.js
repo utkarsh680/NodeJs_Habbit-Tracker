@@ -14,34 +14,64 @@ const newHabitElement = (habit) => {
   const period = habitDate.getHours() >= 12 ? "PM" : "AM";
   return $(`<li>
   <div class="habit-view">
-    <div class="habit-view-item">
+  <div class="habit-view-item">
       <div class="left-side">
-        <h3>${habit.title}</h3>
-        <div class="control-button">
-        <i
-        class="fa-solid fa-check"
-        habit-id="${habit._id}"
-        onclick="completeTask('${habit._id}')"
-      ></i>
-      <i
-      class="fa-solid fa-xmark cut"
-      onclick="deleteTask('${habit._id}')"
-    ></i>
-    <i class="fa-solid fa-minus"
-    onclick="notCompleteTask('${habit._id}')"></i>
-        </div>
+          <h3>${habit.title}</h3>
+          <div class="control-button">
+              <div class="skill">
+                  <div class="outer">
+                      <div class="inner">
+                          <i class="fa-solid fa-check ${
+                            habit.complete === true
+                              ? "green-color"
+                              : "white-color"
+                          }" 
+                             habit-id="${
+                               habit._id
+                             }" id="checked" onclick="completeTask('${
+    habit._id
+  }')"></i>
+                      </div>
+                  </div>
+              </div>
+              <div class="skill">
+                  <div class="outer">
+                      <div class="inner">
+                          <i class="fa-solid fa-xmark cut" id="cross" onclick="deleteTask('${
+                            habit._id
+                          }')"></i>
+                      </div>
+                  </div>
+              </div>
+              <div class="skill">
+                  <div class="outer">
+                      <div class="inner">
+                          <i class="fa-solid fa-minus ${
+                            habit.complete === false
+                              ? "red-color"
+                              : "white-color"
+                          }" 
+                             id="unChecked" onclick="notCompleteTask('${
+                               habit._id
+                             }')"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-
       <div class="time-desc">
-        <h4 class="time">
-          ${hours}:${minutes < 10 ? "0" + minutes : minutes} ${period}
-        </h4>
-        <h4 class="desc">${habit.desc}</h4>
+          <h4 class="time">
+              ${hours}:${minutes < 10 ? "0" + minutes : minutes} ${period}
+          </h4>
+          <h4 class="desc">${habit.desc}</h4>
       </div>
-    </div>
   </div>
+</div>
 </li>`);
 };
+
+
+const habitIdInput = document.getElementById("habit-id");
 
 newHabitForm.addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -108,9 +138,6 @@ document.querySelector(".cancel").addEventListener("click", function () {
   // Reload the page
   location.reload();
 });
-
-
-
 async function deleteTask(taskId) {
   try {
     const response = await fetch(`/habit/delete/${taskId}`, {
@@ -147,9 +174,9 @@ async function deleteTask(taskId) {
   }
 }
 
+
 async function completeTask(taskId) {
   try {
-    console.log("tastID@@@@@@@@@", taskId);
     const response = await fetch(`/habit/complete/${taskId}`, {
       method: "post",
       headers: {
@@ -163,8 +190,19 @@ async function completeTask(taskId) {
     if (response.ok) {
       const responseData = await response.json();
       console.log("Task completed successfully:", responseData);
-      
-      
+
+      const checked = $(`#checked_${taskId}`);
+      const unChecked = $(`#unChecked_${taskId}`);
+      // Make sure the elements are not null before manipulating them
+      checked.css({
+        color: "green",
+      });
+
+      unChecked.css({
+        color: "white",
+        transition: "all 0.4s ease",
+      });
+
       new Noty({
         theme: "relax",
         text: "habit done successfully!",
@@ -189,7 +227,6 @@ async function completeTask(taskId) {
 
 async function notCompleteTask(taskId) {
   try {
-    
     const response = await fetch(`/habit/notCompleted/${taskId}`, {
       method: "post",
       headers: {
@@ -203,6 +240,18 @@ async function notCompleteTask(taskId) {
     if (response.ok) {
       const responseData = await response.json();
       console.log("Task unCompleted ", responseData);
+      const checked = $(`#checked_${taskId}`);
+      const unChecked = $(`#unChecked_${taskId}`);
+      // Make sure the elements are not null before manipulating them
+      // Make sure the elements are not null before manipulating them
+        checked.css({
+          color: "white",
+        });
+
+        unChecked.css({
+          color: "red",
+          transition: "all 0.4s ease",
+        });
       new Noty({
         theme: "relax",
         text: "task not Completed!",
