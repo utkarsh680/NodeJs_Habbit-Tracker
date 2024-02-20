@@ -26,70 +26,6 @@ input :-webkit-autofill {
   rotate: 23deg;
 }
 
-.habit-list-box .border-box .primary {
-  rotate: -23deg;
-  margin-left: 50px;
-  margin-bottom: 10px;
-  font-weight: 200;
-  font-size: 13px;
-  font-family: "Roboto", sans-serif;
-}
-
-.habit-list-box .border-box .borders {
-  position: absolute;
-  width: 445px;
-  border: 1px solid white;
-  left: 112px;
-}
-
-.habit-list-box .add-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: center;
-  margin-bottom: 20px;
-  position: relative;
-  height: 80px;
-  width: 100px;
-}
-
-.habit-list-box .add-button .icon {
-  color: white;
-  font-size: 25px;
-  height: 35px;
-  width: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(30deg, #34224a, #3f3089, #2d77c9, #a3476d);
-  cursor: pointer;
-  border-radius: 50%;
-  border: 2px solid #ef8e06;
-}
-
-.habit-list-box .add-button .icon h3 {
-  position: absolute;
-  color: white;
-  height: auto;
-  font-size: 15px;
-  font-weight: 400;
-  width: auto;
-  padding: 5px 8px;
-  background-color: #5c5c5c;
-  border-radius: 10px;
-  top: -9px;
-  display: none;
-  transition: all 0.4s ease;
-}
-
-.habit-list-box .add-button .icon:hover .none {
-  display: block;
-}
-
-.habit-list-box .add-button .icon:hover .flex {
-  display: none;
-}
-
 .habit-list-box .box {
   display: flex;
   flex-direction: column;
@@ -98,8 +34,10 @@ input :-webkit-autofill {
   position: relative;
   height: 460px;
   width: 700px;
+  margin-top: 100px;
   border-radius: 30px;
   padding: 28px 50px;
+  transition: all 0.3s ease-in;
 }
 
 .habit-list-box .box #form-box {
@@ -739,7 +677,6 @@ input :-webkit-autofill {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 25px 0px;
 }
 
 .habit-list-box .box .habit-list .habit-view {
@@ -839,4 +776,117 @@ input :-webkit-autofill {
 
 .habit-list-box .habit-list::-webkit-scrollbar {
   display: none;
+}
+
+@media screen and (max-width: 830px) {
+  .habit-list-box {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+  }
+  .habit-list-box .box {
+    height: 370px;
+    width: 500px;
+    margin-top: 200px;
+    transition: all 0.3s ease-in;
+  }
+  .habit-list-box .habit-list {
+    padding: 20px 0;
+  }
+  .habit-list-box .circle {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .habit-list-box {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+  }
+  .habit-list-box .box {
+    height: 360px;
+    width: 380px;
+    rotate: 90deg;
+  }
+  .habit-list-box .box .habit-list {
+    display: flex;
+    rotate: 270deg;
+    width: 360px;
+    border-radius: 20px;
+  }
+  .habit-list-box .box #form-box {
+    rotate: 270deg;
+  }
+  .habit-list-box .box #form-box_ {
+    rotate: 270deg;
+  }
+}
+
+@media screen and (max-width: 432px) {
+  .habit-list-box {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+  }
+  .habit-list-box .box {
+    height: 278px;
+    width: 297px;
+    margin-top: 108px;
+    transition: all 0.3s ease-in;
+  }
+  .habit-list-box .box .habit-list {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    width: 272px;
+  }
+  .habit-list-box .box #form-box {
+    margin-bottom: 300px;
+  }
+  .habit-list-box .box #form-box_ {
+    margin-bottom: 400px;
+  }
+  .habit-list-box .habit-list {
+    padding: 20px 0;
+  }
+  .habit-list-box .habit-view-item {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: space-between;
+    padding: 0px 10px 20px 20px;
+  }
+  .habit-list-box .habit-view-item .control-button {
+    display: flex;
+    gap: 0.5rem;
+    color: #e6e6e6;
+  }
+  .habit-list-box .habit-view-item .control-button .skill {
+    height: 30px;
+    width: 50px;
+    position: relative;
+  }
+  .habit-list-box .habit-view-item .control-button .skill .outer {
+    display: none;
+  }
+  .habit-list-box .habit-view-item .control-button .skill .outer .inner {
+    height: 0px;
+    width: 0px;
+  }
+  .habit-list-box .habit-view-item .control-button .skill .outer .inner i {
+    font-size: 18px;
+  }
 }

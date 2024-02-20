@@ -77,16 +77,59 @@ document.querySelector(".cancel_").addEventListener("click", function () {
   console.log("Cancelled");
   newHabitForm.reset();
 });
+
+var form = document.getElementById("form-box");
+var habitList = document.querySelector(".habit-list");
+var icon = document.querySelector(".ipad-button");
+var hover = document.querySelector(".icon h3");
+var formDisplay = document.getElementById("form-box_");
+
+function toggleFormAndBlur() {
+  
+  if (form.style.display === "none") {
+    form.style.display = "block";
+    form.classList.remove("animate__zoomOut");
+    form.classList.add("animate__zoomIn");
+    habitList.classList.add("blur");
+    icon.classList.remove("fa-plus");
+    icon.classList.add("fa-minus");
+
+  } else {
+    setTimeout(() => {
+      form.style.display = "none";
+    }, 500);
+
+    form.classList.add("animate__zoomOut");
+    form.classList.remove("animate__zoomIn");
+    habitList.classList.remove("blur");
+    icon.classList.remove("fa-minus");
+    icon.classList.add("fa-plus");
+
+    formDisplay.style.display = "none";
+  }
+}
+
+//edit button
+
+let editButton = document.querySelector("#edit-button");
+
+editButton.addEventListener("click", function () {
+  toggleFormAndBlur();
+  if(form.style.display === "none"){
+    form.style.display = "block";
+    form.classList.remove("animate__zoomOut");
+    form.classList.add("animate__zoomIn");
+    habitList.classList.add("blur");
+    icon.classList.remove("fa-plus");
+    icon.classList.add("fa-minus");
+  }
+});
+
 document.querySelector(".cancel").addEventListener("click", function () {
-  //cancel without refreshing the page
-  openForm();
+  // Add your cancel logic here
   console.log("Cancelled");
   newHabitForm.reset();
-
-  formDisplay.classList.add("animate__fadeOutRight");
-  setTimeout(() => {
-    formDisplay.style.display = "none";
-  }, 500);
+  toggleFormAndBlur();
 });
 
 newHabitForm.addEventListener("submit", async function (e) {

@@ -23,21 +23,6 @@
   </head>
   <body>
     <div class="habit-list-box">
-      <div class="border-box">
-        <div class="primary">Primary 16px</div>
-
-        <div class="borders"></div>
-      </div>
-      <div class="add-button" onclick="toggleFormAndBlur()">
-        <div class="icon">
-          <h3 class="none flex">Add Habit</h3>
-
-          <div id="toggle-button">
-            <i class="fa-solid fa-plus"></i>
-          </div>
-        </div>
-      </div>
-
       <div class="box">
         <div
           id="form-box"
@@ -122,7 +107,12 @@
             <div class="add-habit">Add Habit</div>
             <!-- Existing input fields (title, desc, dateTime) -->
             <input type="hidden" id="habit-id" name="habitId" value="" />
-            <input type="hidden" id="form-type" name="formType" value="newHabitForm" />
+            <input
+              type="hidden"
+              id="form-type"
+              name="formType"
+              value="newHabitForm"
+            />
             <input
               type="text"
               name="title"
@@ -209,7 +199,7 @@
                       </div>
                     </div>
                     <div onclick="handleUpdateHabit('<%= habit._id %>')">
-                      <i class="fa-solid fa-pen-to-square"></i>
+                      <i class="fa-solid fa-pen-to-square" id="edit-button"></i>
                     </div>
                   </div>
                 </div>
@@ -233,42 +223,6 @@
     </div>
   </body>
 </html>
-<script>
-  function toggleFormAndBlur() {
-    var form = document.getElementById("form-box");
-    var habitList = document.querySelector(".habit-list");
-    var icon = document.querySelector("#toggle-button i");
-    var hover = document.querySelector(".icon h3");
-    var formDisplay = document.getElementById("form-box_");
-
-    if (form.style.display === "none") {
-      form.style.display = "block";
-      form.classList.remove("animate__zoomOut");
-      form.classList.add("animate__zoomIn");
-      habitList.classList.add("blur");
-      icon.classList.remove("fa-plus");
-      icon.classList.add("fa-minus");
-      hover.classList.add("flex");
-      hover.classList.remove("none");
-    } else {
-      setTimeout(() => {
-        form.style.display = "none";
-      }, 500);
-
-      form.classList.add("animate__zoomOut");
-      form.classList.remove("animate__zoomIn");
-      habitList.classList.remove("blur");
-      icon.classList.remove("fa-minus");
-      icon.classList.add("fa-plus");
-      hover.classList.add("none");
-      hover.classList.remove("flex");
-      formDisplay.style.display = "none";
-    }
-  }
-
-
- 
-</script>
 
 <script src="/js/current-time.js"></script>
 <script src="/js/current-date.js"></script>

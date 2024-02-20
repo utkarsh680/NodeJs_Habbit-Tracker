@@ -22,67 +22,6 @@ input {
     display: flex;
     align-items: center;
     rotate: 23deg;
-
-    .primary {
-      rotate: -23deg;
-      margin-left: 50px;
-      margin-bottom: 10px;
-      font-weight: 200;
-      font-size: 13px;
-      font-family: "Roboto", sans-serif;
-    }
-    .borders {
-      position: absolute;
-      width: 445px;
-      border: 1px solid white;
-
-      left: 112px;
-    }
-  }
-  .add-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
-    height: 80px;
-    width: 100px;
-
-    .icon {
-      color: white;
-      font-size: 25px;
-      height: 35px;
-      width: 35px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(30deg, #34224a, #3f3089, #2d77c9, #a3476d);
-      cursor: pointer;
-      border-radius: 50%;
-      border: 2px solid #ef8e06;
-
-      h3 {
-        position: absolute;
-        color: white;
-        height: auto;
-        font-size: 15px;
-        font-weight: 400;
-        width: auto;
-        padding: 5px 8px;
-        background-color: rgb(92, 92, 92);
-        border-radius: 10px;
-        top: -9px;
-        display: none;
-        transition: all 0.4s ease;
-      }
-    }
-    .icon:hover .none {
-      display: block;
-    }
-    .icon:hover .flex {
-      display: none;
-    }
   }
   .box {
     display: flex;
@@ -92,8 +31,10 @@ input {
     position: relative;
     height: 460px;
     width: 700px;
+    margin-top: 100px;
     border-radius: 30px;
     padding: 28px 50px;
+    transition: all 0.3s ease-in;
 
     #form-box {
       position: absolute;
@@ -716,7 +657,6 @@ input {
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      padding: 25px 0px;
 
       .habit-view {
         min-height: 100px;
@@ -759,7 +699,7 @@ input {
                   border-radius: 50%;
                   box-shadow: 6px 6px 10px -1px rgba(41, 41, 241, 0.2),
                     -6px -6px 10px -1px rgba(0, 0, 0, 0.3);
-          
+
                   display: flex;
                   align-items: center;
                   justify-content: center;
@@ -813,5 +753,123 @@ input {
   }
   .habit-list::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .habit-list-box {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+
+    .box {
+      height: 370px;
+      width: 500px;
+      margin-top: 200px;
+      transition: all 0.3s ease-in;
+    }
+    .habit-list {
+      padding: 20px 0;
+    }
+
+    .circle {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 610px) {
+  .habit-list-box {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+
+    .box {
+      height: 360px;
+      width: 380px;
+      rotate: 90deg;
+      .habit-list {
+        display: flex;
+        rotate: 270deg;
+        width: 360px;
+        border-radius: 20px;
+      }
+      #form-box {
+        rotate: 270deg;
+      }
+      #form-box_ {
+        rotate: 270deg;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 432px) {
+  .habit-list-box {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    .box {
+      height: 278px;
+      width: 297px;
+      margin-top: 108px;
+      transition: all 0.3s ease-in;
+      
+      .habit-list {
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        width: 272px;
+      }
+      #form-box {
+        
+        margin-bottom: 300px
+      }
+      #form-box_ {
+        margin-bottom: 400px;
+       }
+    }
+    .habit-list {
+      padding: 20px 0;
+    }
+    .habit-view-item {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      justify-content: space-between;
+      padding: 0px 10px 20px 20px;
+      .control-button {
+        display: flex;
+        gap: 0.5rem;
+        color: rgb(230, 230, 230);
+        .skill {
+          height: 30px;
+          width: 50px;
+          position: relative;
+          .outer {
+            display: none;
+            .inner {
+              height: 0px;
+              width: 0px;
+
+              i {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

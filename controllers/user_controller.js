@@ -195,7 +195,7 @@ exports.forgetPasswordRender = (req, res) => {
   const user = User.findOne({ email: req.body.email });
   return res.render("forgot-password", {
     title: "Forgot password",
-    user,
+   
   });
 };
 
