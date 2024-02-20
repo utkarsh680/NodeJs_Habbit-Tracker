@@ -750,6 +750,11 @@ input :-webkit-autofill {
   font-size: 18px;
 }
 
+.habit-list-box .box .habit-list .habit-view .habit-view-item .left-side .control-button .fa-pen-to-square {
+  cursor: pointer;
+  color: #d6d6d6;
+}
+
 .habit-list-box .box .habit-list .habit-view .habit-view-item .time-desc {
   display: flex;
   flex-direction: column;
@@ -842,16 +847,21 @@ input :-webkit-autofill {
     position: relative;
   }
   .habit-list-box .box {
-    height: 278px;
-    width: 297px;
-    margin-top: 108px;
+    height: 260px;
+    width: 345px;
+    margin-top: 126px;
     transition: all 0.3s ease-in;
   }
   .habit-list-box .box .habit-list {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    width: 272px;
+    width: 304px;
+    min-height: 392px;
+    margin-top: -86px;
+  }
+  .habit-list-box .box .ipad-button {
+    z-index: 10;
   }
   .habit-list-box .box #form-box {
     margin-bottom: 300px;
@@ -865,7 +875,7 @@ input :-webkit-autofill {
   .habit-list-box .habit-view-item {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin-bottom: -40px;
     justify-content: space-between;
     padding: 0px 10px 20px 20px;
   }

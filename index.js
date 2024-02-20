@@ -1,8 +1,8 @@
-
+require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const app = express();
-const port = 8000;
+const port = 5000;
 //for managing ejs layout
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
@@ -13,21 +13,20 @@ app.use(express.json());
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
-const passportGoogle = require('./config/passport-googleAuth2-strategy')
-const passportGithub = require('./config/passport-github2-strategy')
+const passportGoogle = require("./config/passport-googleAuth2-strategy");
+const passportGithub = require("./config/passport-github2-strategy");
 const MongoStore = require("connect-mongo");
 const sassMiddleware = require("node-sass-middleware");
-const flash = require('connect-flash');
-const customMware = require('./config/middleware');
-
+const flash = require("connect-flash");
+const customMware = require("./config/middleware");
 
 app.use(
   sassMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
+    src: "./assets/scss",
+    dest: "./assets/css",
     debug: false,
-    outputStyle: 'expanded',
-    prefix:'/css'
+    outputStyle: "expanded",
+    prefix: "/css",
   })
 );
 
@@ -59,7 +58,7 @@ app.use(
     },
     store: MongoStore.create(
       {
-        mongoUrl: 'mongodb://127.0.0.1/HabbitTracker_User',
+        mongoUrl: `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@cluster0.taxsifz.mongodb.net/?retryWrites=true&w=majority`,
         autoRemove: "disabled",
       },
       function (err) {

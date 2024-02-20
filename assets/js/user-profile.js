@@ -11,7 +11,7 @@ const newHabitElement = (habit) => {
   const hours = habitDate.getHours() % 12 || 12;
   const minutes = habitDate.getMinutes();
   const period = habitDate.getHours() >= 12 ? "PM" : "AM";
-  return $(`<li>
+  return $(`<li id = "habit-${habit._id}" > 
   <div class="habit-view">
   <div class="habit-view-item">
       <div class="left-side">
@@ -23,13 +23,9 @@ const newHabitElement = (habit) => {
                           <i class="fa-solid fa-check ${
                             habit.complete === true
                               ? "green-color"
-                              : "white-color"
-                          }" 
-                             habit-id="${
-                               habit._id
-                             }" id="checked" onclick="completeTask('${
-    habit._id
-  }')"></i>
+                              : "white-color" }" 
+                              habit-id="${habit._id}" 
+                              id="checked_${habit._id}" onclick="completeTask('${habit._id}')"></i>
                       </div>
                   </div>
               </div>
@@ -50,12 +46,15 @@ const newHabitElement = (habit) => {
                               ? "red-color"
                               : "white-color"
                           }" 
-                             id="unChecked" onclick="notCompleteTask('${
+                             id="unChecked_${habit._id}" onclick="notCompleteTask('${
                                habit._id
                              }')"></i>
                       </div>
                   </div>
               </div>
+              <div onclick="handleUpdateHabit('${habit._id}')">
+                      <i class="fa-solid fa-pen-to-square" id="edit-button"></i>
+                </div>
           </div>
       </div>
       <div class="time-desc">
@@ -85,7 +84,6 @@ var hover = document.querySelector(".icon h3");
 var formDisplay = document.getElementById("form-box_");
 
 function toggleFormAndBlur() {
-  
   if (form.style.display === "none") {
     form.style.display = "block";
     form.classList.remove("animate__zoomOut");
@@ -93,7 +91,6 @@ function toggleFormAndBlur() {
     habitList.classList.add("blur");
     icon.classList.remove("fa-plus");
     icon.classList.add("fa-minus");
-
   } else {
     setTimeout(() => {
       form.style.display = "none";
@@ -113,9 +110,9 @@ function toggleFormAndBlur() {
 
 let editButton = document.querySelector("#edit-button");
 
-editButton.addEventListener("click", function () {
+editButton?.addEventListener("click", function () {
   toggleFormAndBlur();
-  if(form.style.display === "none"){
+  if (form.style.display === "none") {
     form.style.display = "block";
     form.classList.remove("animate__zoomOut");
     form.classList.add("animate__zoomIn");
@@ -125,19 +122,19 @@ editButton.addEventListener("click", function () {
   }
 });
 
-document.querySelector(".cancel").addEventListener("click", function () {
+document.querySelector(".cancel")?.addEventListener("click", function () {
   // Add your cancel logic here
-  console.log("Cancelled");
   newHabitForm.reset();
   toggleFormAndBlur();
 });
 
-newHabitForm.addEventListener("submit", async function (e) {
+// form submit
+newHabitForm?.addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const habitId = habitIdInput.value;
   const formType = document.getElementById("form-type");
-  console.log(formType.value, "formType");
+  
 
   var title = titleInput.value;
   var desc = descInput.value;
@@ -159,10 +156,9 @@ newHabitForm.addEventListener("submit", async function (e) {
         dateTime: dateTime,
       }),
     });
-    console.log(response);
+  
     if (response.ok) {
       const responseData = await response.json();
-      // console.log("Habit created successfully:", responseData);
 
       // Reset input values
       titleInput.value = "";
@@ -190,7 +186,7 @@ newHabitForm.addEventListener("submit", async function (e) {
       }
       // const li = document.createElement(newHabitElement(responseData.habit));
     } else {
-      console.log(`Server responded with status ${response.status}`);
+      // console.log(`Server responded with status ${response.status}`);
       const errorResponse = await response.json();
       console.log("Error details:", errorResponse);
     }
@@ -209,7 +205,7 @@ async function deleteTask(taskId) {
     });
     if (response.ok) {
       const responseData = await response.json();
-      console.log("Task deleted successfully:", responseData);
+      // console.log("Task deleted successfully:", responseData);
       // Assuming your task element has an id attribute
       const taskElement = $(`#habit-${taskId}`);
       console.log("Task element removed from the DOM.");
@@ -249,7 +245,7 @@ async function completeTask(taskId) {
 
     if (response.ok) {
       const responseData = await response.json();
-      console.log("Task completed successfully:", responseData);
+     
 
       const checked = $(`#checked_${taskId}`);
       const unChecked = $(`#unChecked_${taskId}`);
@@ -299,7 +295,7 @@ async function notCompleteTask(taskId) {
 
     if (response.ok) {
       const responseData = await response.json();
-      console.log("Task unCompleted ", responseData);
+   
       const checked = $(`#checked_${taskId}`);
       const unChecked = $(`#unChecked_${taskId}`);
       // Make sure the elements are not null before manipulating them
@@ -354,7 +350,9 @@ function openForm() {
   }
 }
 
+// function to handle the update habit button click
 const handleUpdateHabit = (habitId) => {
+  
   // update the formType value to update
   const formType = document.getElementById("form-type");
   formType.value = "editHabitForm";
@@ -368,6 +366,5 @@ const handleUpdateHabit = (habitId) => {
   descInput.value = habitDesc;
   dateTimeInput.value = habitDateTime;
   habitIdInput.value = habitId;
-  console.log(habit, habitTitle, habitDesc, habitDateTime);
   openForm();
 };

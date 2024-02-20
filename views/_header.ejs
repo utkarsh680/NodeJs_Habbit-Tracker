@@ -6,13 +6,27 @@
     </li>
     <% } else { %>
     <div class="avatar">
+      <% if (locals.user.avatar) { %>
       <img src="<%= locals.user.avatar %>" alt="" />
+      <% } else { %>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkN9BY5gyMxjAxe5I3SbK0L_EJf8t-TtE4fJwH_JpMKQ&s"
+        alt="default image"
+      />
+      <% } %>
       <i class="fa-solid fa-angle-down"></i>
     </div>
     <div class="header animate__animated animate__fadeIn">
       <div class="profile">
         <div class="avatar_">
+          <% if (locals.user.avatar) { %>
           <img src="<%= locals.user.avatar %>" alt="" />
+          <% } else { %>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkN9BY5gyMxjAxe5I3SbK0L_EJf8t-TtE4fJwH_JpMKQ&s"
+            alt="default image"
+          />
+          <% } %>
         </div>
         <div class="user-name-email">
           <div class="user-name"><%= locals.user.name %></div>

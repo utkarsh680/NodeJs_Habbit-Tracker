@@ -722,6 +722,10 @@ input {
                   }
                 }
               }
+              .fa-pen-to-square {
+                cursor: pointer;
+                color: rgb(214, 214, 214);
+              }
             }
           }
 
@@ -821,24 +825,28 @@ input {
     align-items: center;
     position: relative;
     .box {
-      height: 278px;
-      width: 297px;
-      margin-top: 108px;
+      height: 260px;
+      width: 345px;
+      margin-top: 126px;
       transition: all 0.3s ease-in;
-      
+
       .habit-list {
         display: flex;
         flex-direction: column;
         overflow-x: hidden;
-        width: 272px;
+        width: 304px;
+        min-height: 392px;
+        margin-top: -86px;
+      }
+      .ipad-button{
+        z-index: 10;
       }
       #form-box {
-        
-        margin-bottom: 300px
+        margin-bottom: 300px;
       }
       #form-box_ {
         margin-bottom: 400px;
-       }
+      }
     }
     .habit-list {
       padding: 20px 0;
@@ -846,7 +854,7 @@ input {
     .habit-view-item {
       display: flex;
       flex-direction: column;
-      margin: 10px;
+      margin-bottom: -40px;
       justify-content: space-between;
       padding: 0px 10px 20px 20px;
       .control-button {
