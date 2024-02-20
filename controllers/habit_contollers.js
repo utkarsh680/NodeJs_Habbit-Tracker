@@ -45,7 +45,6 @@ module.exports.update = async function (req, res) {
     const updatedUser = await Habit.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
-    console.log("hello",updatedUser.id);
 
     if (!updatedUser) {
       // User with the given ID not found
@@ -53,7 +52,7 @@ module.exports.update = async function (req, res) {
     }
     return res.status(200).json({
       message: "Habit updated successfully!",
-      habitId : updatedUser.id
+      habit: updatedUser,
     });
   } catch (err) {
     return res.status(400).json({

@@ -1,11 +1,10 @@
 var newHabitForm = document.getElementById("new-habit-form");
 var button = document.querySelector(".save_");
+var cancelPage = document.querySelector(".habit-list-box");
+var save = document.querySelector(".save");
 var titleInput = document.querySelector(".user-title");
 var descInput = document.querySelector(".user-desc");
 var dateTimeInput = document.querySelector(".user-dateTime");
-
-var cancelPage = document.querySelector(".habit-list-box");
-var save = document.querySelector(".save");
 
 const newHabitElement = (habit) => {
   const habitDate = new Date(habit.dateTime);
@@ -70,18 +69,43 @@ const newHabitElement = (habit) => {
 </li>`);
 };
 
-
 const habitIdInput = document.getElementById("habit-id");
+
+// If you want to add cancel functionality
+document.querySelector(".cancel_").addEventListener("click", function () {
+  // Add your cancel logic here
+  console.log("Cancelled");
+  newHabitForm.reset();
+});
+document.querySelector(".cancel").addEventListener("click", function () {
+  //cancel without refreshing the page
+  openForm();
+  console.log("Cancelled");
+  newHabitForm.reset();
+
+  formDisplay.classList.add("animate__fadeOutRight");
+  setTimeout(() => {
+    formDisplay.style.display = "none";
+  }, 500);
+});
 
 newHabitForm.addEventListener("submit", async function (e) {
   e.preventDefault();
 
+  const habitId = habitIdInput.value;
+  const formType = document.getElementById("form-type");
+  console.log(formType.value, "formType");
+
   var title = titleInput.value;
   var desc = descInput.value;
   var dateTime = dateTimeInput.value;
+  const url =
+    formType.value === "newHabitForm"
+      ? "/habit/create"
+      : `/habit/update/${habitId}`;
 
   try {
-    const response = await fetch("/habit/create", {
+    const response = await fetch(url, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -106,16 +130,22 @@ newHabitForm.addEventListener("submit", async function (e) {
       // For example, in Express.js with connect-flash:
       new Noty({
         theme: "relax",
-        text: "habit created successfully!",
+        text: `habit ${
+          formType.value === "newHabitForm" ? "created" : "updated"
+        } successfully!`,
         type: "success",
         layout: "topCenter",
         timeout: 1000,
         className: "custom-notification-class", // Add your custom class here
       }).show();
-      const ul = $("#habit-list");
+      if (formType.value === "newHabitForm") {
+        const ul = $("#habit-list");
+        ul.prepend(newHabitElement(responseData.habit));
+      } else {
+        const habitElement = $(`#habit-${habitId}`);
+        habitElement.replaceWith(newHabitElement(responseData.habit));
+      }
       // const li = document.createElement(newHabitElement(responseData.habit));
-
-      ul.prepend(newHabitElement(responseData.habit));
     } else {
       console.log(`Server responded with status ${response.status}`);
       const errorResponse = await response.json();
@@ -126,18 +156,6 @@ newHabitForm.addEventListener("submit", async function (e) {
   }
 });
 
-// If you want to add cancel functionality
-document.querySelector(".cancel_").addEventListener("click", function () {
-  // Add your cancel logic here
-  console.log("Cancelled");
-  newHabitForm.reset();
-});
-document.querySelector(".cancel").addEventListener("click", function () {
-  // Add your cancel logic here
-  console.log("Cancelled");
-  // Reload the page
-  location.reload();
-});
 async function deleteTask(taskId) {
   try {
     const response = await fetch(`/habit/delete/${taskId}`, {
@@ -173,7 +191,6 @@ async function deleteTask(taskId) {
     console.error("An error occurred during the fetch operation:", error);
   }
 }
-
 
 async function completeTask(taskId) {
   try {
@@ -244,14 +261,14 @@ async function notCompleteTask(taskId) {
       const unChecked = $(`#unChecked_${taskId}`);
       // Make sure the elements are not null before manipulating them
       // Make sure the elements are not null before manipulating them
-        checked.css({
-          color: "white",
-        });
+      checked.css({
+        color: "white",
+      });
 
-        unChecked.css({
-          color: "red",
-          transition: "all 0.4s ease",
-        });
+      unChecked.css({
+        color: "red",
+        transition: "all 0.4s ease",
+      });
       new Noty({
         theme: "relax",
         text: "task not Completed!",
@@ -273,3 +290,41 @@ async function notCompleteTask(taskId) {
     console.error("An error occurred during the fetch operation:", error);
   }
 }
+function handleHomeButtonClick() {
+  // update the formType value to update
+  const formType = document.getElementById("form-type");
+  formType.value = "newHabitForm";
+  openForm();
+}
+
+function openForm() {
+  var formDisplay = document.getElementById("form-box_");
+
+  if (formDisplay.style.display === "none") {
+    formDisplay.style.display = "block";
+    formDisplay.classList.remove("animate__fadeOutRight");
+  } else {
+    formDisplay.classList.add("animate__fadeOutRight");
+    setTimeout(() => {
+      formDisplay.style.display = "none";
+    }, 500);
+  }
+}
+
+const handleUpdateHabit = (habitId) => {
+  // update the formType value to update
+  const formType = document.getElementById("form-type");
+  formType.value = "editHabitForm";
+
+  const habit = document.getElementById(`habit-${habitId}`);
+  const habitTitle = habit.querySelector(".habit-view-item h3").innerText;
+  const habitDesc = habit.querySelector(".habit-view-item .desc").innerText;
+  const habitDateTime = habit.querySelector(".habit-view-item .time").innerText;
+
+  titleInput.value = habitTitle;
+  descInput.value = habitDesc;
+  dateTimeInput.value = habitDateTime;
+  habitIdInput.value = habitId;
+  console.log(habit, habitTitle, habitDesc, habitDateTime);
+  openForm();
+};

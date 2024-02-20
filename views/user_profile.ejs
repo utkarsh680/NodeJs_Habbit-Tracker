@@ -41,7 +41,7 @@
       <div class="box">
         <div
           id="form-box"
-          onclick="openForm()"
+          onclick="handleHomeButtonClick()"
           style="display: none"
           class="animate__animated animate__zoomIn"
         >
@@ -122,6 +122,7 @@
             <div class="add-habit">Add Habit</div>
             <!-- Existing input fields (title, desc, dateTime) -->
             <input type="hidden" id="habit-id" name="habitId" value="" />
+            <input type="hidden" id="form-type" name="formType" value="newHabitForm" />
             <input
               type="text"
               name="title"
@@ -207,7 +208,7 @@
                         </div>
                       </div>
                     </div>
-                    <div onclick="updateHabit('<%= habit._id %>')">
+                    <div onclick="handleUpdateHabit('<%= habit._id %>')">
                       <i class="fa-solid fa-pen-to-square"></i>
                     </div>
                   </div>
@@ -264,19 +265,7 @@
       formDisplay.style.display = "none";
     }
   }
-  function openForm() {
-    var formDisplay = document.getElementById("form-box_");
 
-    if (formDisplay.style.display === "none") {
-      formDisplay.style.display = "block";
-      formDisplay.classList.remove("animate__fadeOutRight");
-    } else {
-      formDisplay.classList.add("animate__fadeOutRight");
-      setTimeout(() => {
-        formDisplay.style.display = "none";
-      }, 500);
-    }
-  }
 
  
 </script>
